@@ -4,6 +4,7 @@ class Message {
 
     static constraints = {
     }
-//mqslkdmhkqlsdjfqdslkjfqskljdsqfmlkqdsjmlkdfjqsm
-
+//git add lien/vers/truc
+//git commit -m "My message"
+//git push origin master
 }
