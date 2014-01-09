@@ -2,9 +2,10 @@ package ivvq13
 
 class Rating {
 
+	short value;
+	User author;
+	
     static constraints = {
     }
-	
-	private short value;
-	private User author;
+
 }
