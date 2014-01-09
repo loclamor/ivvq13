@@ -2,13 +2,9 @@ package ivvq13
 
 class Category {
 
- String name
-		
-  
- 
+ String name 
 
 	static constraints = {
 		}
-	
 	
 }
