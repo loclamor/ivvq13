@@ -21,4 +21,5 @@ class Document {
 	static constraints = {
     }
 
+	 
 }
