@@ -10,6 +10,7 @@ class Document {
 	String content
 	Category category
 	User user
+	
 	static hasMany = [
 		messages : Message,
 		tags : Tag,
