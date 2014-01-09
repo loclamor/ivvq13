@@ -1,9 +1,5 @@
 package ivvq13
 
-import groovy.lang.Category;
-
-import java.util.ArrayList;
-
 class Document {
 
 	String title
