@@ -19,14 +19,14 @@
 							<div class="form-group">
 								<label for="inputUsernameIn" class="col-sm-3 control-label">Username</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputUsernameIn"
+									<input type="text" class="form-control" id="inputUsernameIn" name="inputUsernameIn"
 										placeholder="Username">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPasswordIn" class="col-sm-3 control-label">Password</label>
 								<div class="col-sm-9">
-									<input type="password" class="form-control" id="inputPasswordIn"
+									<input type="password" class="form-control" id="inputPasswordIn" name="inputPasswordIn"
 										placeholder="Password">
 								</div>
 							</div>
@@ -43,21 +43,14 @@
 							<div class="form-group">
 								<label for="inputUsernameUp" class="col-sm-3 control-label">Username</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputUsernameUp"
+									<input type="text" class="form-control" id="inputUsernameUp" name="inputUsernameUp"
 										placeholder="Username">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="inputPasswordUp" class="col-sm-3 control-label">Password</label>
 								<div class="col-sm-9">
-									<input type="password" class="form-control" id="inputPasswordUp"
-										placeholder="Password">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="selectGroupUp" class="col-sm-3 control-label">Choose a group</label>
-								<div class="col-sm-9">
-									<input type="password" class="form-control" id="inputPasswordUp"
+									<input type="password" class="form-control" id="inputPasswordUp" name="inputPasswordUp"
 										placeholder="Password">
 								</div>
 							</div>
