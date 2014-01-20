@@ -6,6 +6,7 @@ class UrlMappings {
                 // apply constraints here
             }
         }
+		"/forgotpwd"(view:"/forgotPassword")
 
         "/"(view:"/index")
 		"/document/create"(view:"/document/create")

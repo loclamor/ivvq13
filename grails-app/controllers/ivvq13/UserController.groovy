@@ -19,8 +19,9 @@ class UserController {
 	def signup(){
 		def username = params.inputUsernameUp
 		def password = params.inputPasswordUp
+		def email = params.inputEmailUp
 		
-		def user = new User(username: username, password: password)
+		def user = new User(username: username, password: password, email: email)
 		if(!user.save(flush : true)) {
 			user.errors.allErrors.each( {e -> println (e) } )
 			redirect(uri: "/")
@@ -30,6 +31,13 @@ class UserController {
 		redirect(controller: "document", action: "list")
 	}
 	
+	def forgotpwd(){
+		redirect(uri: "/forgotpwd")
+	}
+	
+	def sendEmail(){
+		redirect(uri: "/")
+	}
 	
     def index() { }
 }
