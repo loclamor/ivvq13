@@ -10,6 +10,9 @@ class UrlMappings {
 		"/user/changepwd"(view:"/user/changepwd")
 		"/user/changepwdOk"(view:"/user/changepwdOk")
 		
+		"/user/changename"(view:"/user/changename")
+		"/user/changenameOk"(view:"/user/changenameOk")
+		
 		"/user/forgotpwd"(view:"/user/forgotPassword")
 
         "/"(view:"/index")

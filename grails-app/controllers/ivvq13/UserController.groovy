@@ -53,6 +53,24 @@ class UserController {
 	}
 	
 	
+	def changeusername() {
+		def username = params.inputOldUsernameIn
+		def newusername = params.inputNewUsernameIn
+		def password = params.inputPasswordIn
+		
+		
+		def user = User.findByUsernameAndPassword( username, password )
+		if( !user ) {
+			redirect(uri: "/")
+			return
+		}
+		username=newusername
+		session.user = user
+		redirect(uri:"/user/changenameOk")
+	}
+	
+	
+	
 	
 	
 	def forgotpwd(){
