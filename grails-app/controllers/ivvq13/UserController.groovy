@@ -1,5 +1,7 @@
 package ivvq13
 
+import org.springframework.mail.SimpleMailMessage
+
 class UserController {
 
 	def signin() {
@@ -36,6 +38,25 @@ class UserController {
 	}
 	
 	def sendEmail(){
+		
+			/*	def mailSender = appContext.getBean( "mailSender" )
+				def message = new SimpleMailMessage()
+			
+				// Set properties
+				message.from=""
+				message.to = 'user@domain.com'
+				message.subject = 'subject'
+			
+				def body = "Dear ${session.user},"
+				body = body + "rn You have a new message"
+				body = body + " to view this message go here."
+				body = body + "rnhttp://domain.com/send/email"
+			
+				message.body = body
+			
+				mailSender.send( message )*/
+			
+			  
 		redirect(uri: "/")
 	}
 	
