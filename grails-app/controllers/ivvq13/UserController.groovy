@@ -33,8 +33,30 @@ class UserController {
 		redirect(controller: "document", action: "list")
 	}
 	
+	
+	
+	
+	
+	def changepassword() {
+		def username = params.inputUsernameIn
+		def password = params.inputPasswordIn
+		def newpassword = params.inputNewPasswordIn
+		
+		def user = User.findByUsernameAndPassword( username, password )
+		if( !user ) {
+			redirect(uri: "/")
+			return
+		}
+		password=newpassword
+		session.user = user
+		redirect(uri:"/user/changepwdOk")
+	}
+	
+	
+	
+	
 	def forgotpwd(){
-		redirect(uri: "/forgotpwd")
+		redirect(uri: "/user/forgotpwd")
 	}
 	
 	def sendEmail(){
