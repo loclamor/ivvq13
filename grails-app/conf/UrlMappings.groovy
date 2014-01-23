@@ -16,9 +16,9 @@ class UrlMappings {
 		"/user/forgotpwd"(view:"/user/forgotPassword")
 
         "/"(view:"/index")
-		"/document/create"(view:"/document/create")
-		"/document/view"(view:"/document/view")
-		"/document/list"(view:"/document/list")
+//		"/document/create"(view:"/document/create")
+//		"/document/view"(view:"/document/view")
+//		"/document/list"(view:"/document/list")
         "500"(view:'/error')
 	}
 }

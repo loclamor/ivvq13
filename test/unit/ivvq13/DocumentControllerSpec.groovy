@@ -16,11 +16,15 @@ class DocumentControllerSpec extends Specification {
 
 	def cleanup() {
 	}
+	
+	def "run"() {
+		log.info("starting tests")
+	}
 
 	
 	def "document create should redirect to create page"() {
 		when:
-		controller.create()
+		controller.create_page()
 
 		then:
 		response.redirectedUrl == "/document/create"		
