@@ -38,25 +38,24 @@ class UserController {
 	
 	
 	def changepassword() {
-		def username = params.inputUsernameIn
-		def password = params.inputPasswordIn
+		def username = params.inputUsernameIn //delete this line 
+		def password = params.inputPasswordIn //delete this line 
 		def newpassword = params.inputNewPasswordIn
 		
-		def user = User.findByUsernameAndPassword( username, password )
-		if( !user ) {
-			redirect(uri: "/")
-			return
-		}
-		password=newpassword
-		session.user = user
+	
+		
+		session.user.password=newpassword
+		session.user.save( {flush: true} ) //flush : true = force the database save ; if not modification are eventually not stored in database on next request to the user from the database
+		
+		
 		redirect(uri:"/user/changepwdOk")
 	}
 	
 	
 	def changeusername() {
-		def username = params.inputOldUsernameIn
+		def username = params.inputOldUsernameIn //delete this line 
 		def newusername = params.inputNewUsernameIn
-		def password = params.inputPasswordIn
+		def password = params.inputPasswordIn  //delete this line 
 		
 		session.user.username = newusername
 		session.user.save( {flush: true} ) //flush : true = force the database save ; if not modification are eventually not stored in database on next request to the user from the database
