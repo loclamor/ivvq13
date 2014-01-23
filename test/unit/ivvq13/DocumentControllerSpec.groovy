@@ -34,7 +34,7 @@ class DocumentControllerSpec extends Specification {
 		response.redirectedUrl == "/document/list"
 	}
 	
-	def "document view should redirect to create page"() {
+	def "document view should redirect to view page"() {
 		when:
 		controller.view()
 
