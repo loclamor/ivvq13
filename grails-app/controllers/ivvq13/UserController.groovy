@@ -38,6 +38,8 @@ class UserController {
 	
 	
 	def changepassword() {
+		
+		
 		def newpassword = params.inputNewPasswordIn		
 		session.user.password=newpassword
 		session.user.save( flush: true ) 
