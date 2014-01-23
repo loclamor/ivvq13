@@ -2,7 +2,7 @@ package ivvq13
 
 class DocumentController {
 
-	def create() {
+	def create_page() {
 		//create new document, then on submit, redirect to view
 		def title_ = params.title
 		def category_ = params.category
@@ -15,7 +15,7 @@ class DocumentController {
 		def doc = Document.findByTitleLike(title_)		
 		if( doc ) {
 			println "A doc with this title already exists in the database";
-			redirect(uri: "/document/create")
+			//redirect(uri: "/document/create")
 			return
 		}
 		
@@ -26,13 +26,17 @@ class DocumentController {
 		if(!document.save(flush : true)) {
 			println "Doc was not saved";
 			document.errors.allErrors.each( {e -> println (e) } )
-			redirect(uri: "/document/create")
+			//redirect(uri: "/document/create")
 			return
 		}
 		
-		println "Doc was saved";
-		redirect(controller: "document", action: "list")
+		println "Doc was saved"
+		//redirect(controller: "document", action: "list")
 		//redirect(uri: "/document/list")
+	}
+	
+	def redirect_create_page(){
+		redirect(uri: "/document/create_page")
 	}
 	
 	def view(){
@@ -49,8 +53,6 @@ class DocumentController {
 		def doclist = Document.all
 		doclist.each() { print " ${it}" }; println "";
 		
-		redirect(uri: "/document/list")
-		
-	
+		//redirect(uri: "/document/list")	
 	}
 }
