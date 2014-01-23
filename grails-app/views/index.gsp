@@ -40,17 +40,7 @@
 								<label for="inputPasswordIn" class="col-sm-3 control-label">
 								</label>
 								<div class="col-sm-9">
-									<table>
-										<tr>
-										<td>
-										</td>
-										<td>
-											<g:link controller="user" action="forgotpwd">Forgot your password?</g:link>	
-												
-											</td>
-										</tr>
-									</table>
-
+								<g:link controller="user" action="forgotpwd">Forgot your password?</g:link>	
 								</div>
 							</div>
 
