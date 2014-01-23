@@ -17,15 +17,31 @@ class DocumentControllerSpec extends Specification {
 	def cleanup() {
 	}
 
-	void "test something"() {
-	}
 	
 	def "document create should redirect to create page"() {
 		when:
 		controller.create()
 
 		then:
-		response.redirectedUrl == "/document/create"
-		
+		response.redirectedUrl == "/document/create"		
 	}
+	
+	def "document list should redirect to document list page"() {
+		when:
+		controller.list()
+
+		then:
+		response.redirectedUrl == "/document/list"
+	}
+	
+	def "document view should redirect to create page"() {
+		when:
+		controller.view()
+
+		then:
+		response.redirectedUrl == "/document/view"
+	}
+	
+	
+	
 }
