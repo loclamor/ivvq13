@@ -16,22 +16,8 @@
 					<div class="col-md-6">
 						<g:form controller="user" action="changepassword" class="form-horizontal"
 							role="form">
-							<div class="form-group">
-								<label for="inputUsernameIn" class="col-sm-3 control-label">Username</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputUsernameIn"
-										name="inputUsernameIn" placeholder="Username">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPasswordIn" class="col-sm-3 control-label">Old Password</label>
-								<div class="col-sm-9">
-									<input type="password" class="form-control"
-										id="inputPasswordIn" name="inputPasswordIn"
-										placeholder="Password">
-
-								</div>
-							</div>
+							
+							
 
 							<div class="form-group">
 								<label for="inputNewPasswordIn" class="col-sm-3 control-label">New Password</label>
