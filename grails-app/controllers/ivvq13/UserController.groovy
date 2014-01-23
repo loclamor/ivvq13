@@ -40,7 +40,7 @@ class UserController {
 	def changepassword() {
 		def newpassword = params.inputNewPasswordIn		
 		session.user.password=newpassword
-		session.user.save( {flush: true} ) 
+		session.user.save( flush: true ) 
 		//flush : true = force the database save ; if not modification are eventually not stored in database on next request to the user from the database	
 		redirect(uri:"/user/changepwdOk")
 	}
@@ -49,7 +49,7 @@ class UserController {
 	def changeusername() {
 		def newusername = params.inputNewUsernameIn		
 		session.user.username = newusername
-		session.user.save( {flush: true} ) 
+		session.user.save( flush: true ) 
 		//flush : true = force the database save ; if not modification are eventually not stored in database on next request to the user from the database
 		redirect(uri:"/user/changenameOk")
 	}
