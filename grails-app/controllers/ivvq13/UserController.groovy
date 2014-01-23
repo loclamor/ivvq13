@@ -58,14 +58,9 @@ class UserController {
 		def newusername = params.inputNewUsernameIn
 		def password = params.inputPasswordIn
 		
+		session.user.username = newusername
+		session.user.save( {flush: true} ) //flush : true = force the database save ; if not modification are eventually not stored in database on next request to the user from the database
 		
-		def user = User.findByUsernameAndPassword( username, password )
-		if( !user ) {
-			redirect(uri: "/")
-			return
-		}
-		username=newusername
-		session.user = user
 		redirect(uri:"/user/changenameOk")
 	}
 	
@@ -74,7 +69,7 @@ class UserController {
 	
 	
 	def forgotpwd(){
-		redirect(uri: "/user/forgotpwd")
+		//le nom de fichier doit etre le meme que le nom de view
 	}
 	
 	def sendEmail(){

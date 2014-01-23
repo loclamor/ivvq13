@@ -13,7 +13,7 @@ class UrlMappings {
 		"/user/changename"(view:"/user/changename")
 		"/user/changenameOk"(view:"/user/changenameOk")
 		
-		"/user/forgotpwd"(view:"/user/forgotPassword")
+		
 
         "/"(view:"/index")
 		"/document/create"(view:"/document/create")
