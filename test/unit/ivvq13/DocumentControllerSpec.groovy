@@ -22,12 +22,20 @@ class DocumentControllerSpec extends Specification {
 	}
 
 	
-	def "document create should redirect to create page"() {
+	def "intent to create new document should redirect to create page"() {
 		when:
 		controller.create_page()
 
 		then:
-		response.redirectedUrl == "/document/create"		
+		response.redirectedUrl == "/document/create_page"		
+	}
+	
+	def "document creation should redirect to list page when creating a true document"(){
+		when:
+		controller.create()
+
+		then:
+		response.redirectedUrl == "/document/list"
 	}
 	
 	def "document list should redirect to document list page"() {

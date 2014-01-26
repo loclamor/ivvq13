@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta name="layout" content="main" />
-	<title>Connection</title>
+	<title>Document Creation</title>
 </head>
 <body>
 	<div class="container">
@@ -16,7 +16,7 @@
 					
 					<div class="col-md-12">
 						
-						<g:form controller="document" action="create_page" class="form-horizontal" role="form" >
+						<g:form controller="document" action="create" class="form-horizontal" role="form" >
 							<div class="form-group">
 								<label for="title" class="col-sm-3 control-label">Title</label>
 								<div class="col-sm-9">

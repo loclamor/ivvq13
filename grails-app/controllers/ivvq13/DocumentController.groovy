@@ -2,7 +2,7 @@ package ivvq13
 
 class DocumentController {
 
-	def create_page() {
+	def create() {
 		//create new document, then on submit, redirect to view
 		def title_ = params.title
 		def category_ = params.category
@@ -10,33 +10,39 @@ class DocumentController {
 		def tags_ = params.tags
 		def attachments_ = params.attachments		
 		def user_ = session.user
+		def c = new Category(name:category_);
 		
 		//if the title is already in the database, please retry		
 		def doc = Document.findByTitleLike(title_)		
 		if( doc ) {
 			println "A doc with this title already exists in the database";
-			//redirect(uri: "/document/create")
+			redirect(uri: "/document/create_page")
 			return
-		}
-		
+		}		
+		 
 		//create new document and save in database 
-		def document = new Document(title: title_, category:category_, 
+		def document = new Document(title: title_, category:c, 
 			user:user_, tags:tags_, attachments:attachments_, messages:null, ratings:0,
 			content: content_)
 		if(!document.save(flush : true)) {
 			println "Doc was not saved";
 			document.errors.allErrors.each( {e -> println (e) } )
-			//redirect(uri: "/document/create")
+			redirect(uri: "/document/create_page")
+			return
+		}
+		else {
+			println "Doc was saved"
+			redirect(uri: "/document/list")
 			return
 		}
 		
-		println "Doc was saved"
+		
 		//redirect(controller: "document", action: "list")
-		//redirect(uri: "/document/list")
+		
 	}
 	
-	def redirect_create_page(){
-		redirect(uri: "/document/create_page")
+	def create_page() {
+		//needed for convention		
 	}
 	
 	def view(){

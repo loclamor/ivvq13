@@ -11,7 +11,7 @@
   
   List of documents
   
-  				<g:form controller="document" action="redirect_create_page" class="form-horizontal" role="form" >
+  				<g:form controller="document" action="create_page" class="form-horizontal" role="form" >
 							<div class="form-group">
 								
 								<div class="col-sm-9">
