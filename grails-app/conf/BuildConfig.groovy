@@ -50,7 +50,13 @@ grails.project.dependency.resolution = {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         // runtime 'mysql:mysql-connector-java:5.1.24'
 		test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
+		
     } 
+	
+	coverage {
+		enabledByDefault = true
+	 }
+	
 
 
     plugins {
@@ -63,7 +69,7 @@ grails.project.dependency.resolution = {
 		
 		// plugins for testing
 		test ":spock:0.7"
-
+		test ":code-coverage:1.2.7"
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
         runtime ":database-migration:1.3.8"
