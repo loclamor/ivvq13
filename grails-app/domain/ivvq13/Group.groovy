@@ -1,6 +1,6 @@
 package ivvq13
 
-class Groupe {
+class Group {
 	static hasMany = [
 		users: User
 		]

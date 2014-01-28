@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<projectSuggestions>
+<declaringtype type="grails.test.mixin.web.ControllerUnitTestMixin">
+<property isActive="true" isStatic="false" name="view" type="java.lang.String">
+<doc/>
+</property>
+</declaringtype>
+<declaringtype type="DocumentControllerSpec">
+<property isActive="true" isStatic="false" name="Document" type="java.lang.Object">
+<doc/>
+</property>
+</declaringtype>
+</projectSuggestions>
