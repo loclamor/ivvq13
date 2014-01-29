@@ -11,6 +11,7 @@ import spock.lang.Specification
  */
 
 @TestFor(DocumentController)
+@Mock([Document,Attachment,Category,Group,Message,Rating,Tag,User])
 class DocumentControllerSpec extends Specification {
 
 	def setup() {
@@ -32,7 +33,7 @@ class DocumentControllerSpec extends Specification {
 	
 	def "wow"(){
 		when:
-		controller.create_page()
+		controller.view()
 		
 		then:
 		assert response.redirectedUrl == "/document/create_page"

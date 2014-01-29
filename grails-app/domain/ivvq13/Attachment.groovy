@@ -3,7 +3,7 @@ package ivvq13
 class Attachment {
 
 	private String url
-	private String description
+	//private String description
 	
     static constraints = {
     }
