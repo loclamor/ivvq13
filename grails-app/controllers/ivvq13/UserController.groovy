@@ -49,20 +49,30 @@ class UserController {
 	def changepwdOk() {
 		
 	}
-	
-	//def changeusername() {
+
 	def changename() {
-		def newusername = params.inputNewUsernameIn		
-		session.user.username = newusername
-		//flush : true = force the database save ; if not modification are eventually not stored in database on next request to the user from the database
-		session.user.save( flush: true ) 
-		//redirect(uri:"/user/changenameOk")
-		
-	
+
 	}
 	
 	def changenameOk() {
+		//get new username
+		def newusername = params.inputNewUsernameIn
 		
+		//get lastest user from DB to avoid versions conflicts
+		def user = User.get( session.user.id )
+		
+		//set username and save
+		user.setUsername( newusername )
+		if(!user.save(flush:true)){
+			println("erreur enregistrement user");
+			user.errors.allErrors.each( {e -> println (e) } )
+			//on error, redirect on username change
+			redirect( action: "changename" )
+			return
+		}
+		
+		// here user is safely saved, store it in session
+		session.user = User.get( user.id )
 	}
 	
 	
