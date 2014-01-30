@@ -17,4 +17,22 @@ class UserControllerSpec extends Specification {
 
     void "test something"() {
     }
+	
+	//
+	/*def "testChangeName"(){
+		when:
+		controller.changename()
+		
+		then:
+		assert response.redirectedUrl == "/user/changename"
+	}
+	
+	def "testChangeNameOk"(){
+		when:
+		controller.changenameOk()
+		
+		then:
+		assert response.redirectedUrl == "/user/changenameOk"
+	}*/
+	
 }
