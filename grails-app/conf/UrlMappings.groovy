@@ -5,14 +5,7 @@ class UrlMappings {
             constraints {
                 // apply constraints here
             }
-        }
-		
-		"/user/changepwd"(view:"/user/changepwd")
-		"/user/changepwdOk"(view:"/user/changepwdOk")
-		
-		"/user/changename"(view:"/user/changename")
-		"/user/changenameOk"(view:"/user/changenameOk")
-		
+        }		
 		
 
         "/"(view:"/index")

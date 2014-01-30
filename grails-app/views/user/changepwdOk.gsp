@@ -14,7 +14,11 @@
 						<h3>Your password is changed !!</h3>
 					</div>
 					
-				
+				<g:form controller="document" action="list" class="form-horizontal" role="form" >
+								<div class="col-sm-9">
+									<button type="submit">Return</button>
+								</div>							
+						</g:form>
 				</div>
 			</div>
 		</div>

@@ -25,7 +25,7 @@
 							
 							
 						</g:form>
-				<g:form controller="user" action="changeusername" class="form-horizontal" role="form" >
+				<g:form controller="user" action="changename" class="form-horizontal" role="form" >
 							
 								<div class="col-sm-9">
 									<button type="submit">Change username</button>
@@ -35,7 +35,7 @@
 							
 						</g:form>
 					
-				<g:form controller="user" action="changepassword" class="form-horizontal" role="form" >
+				<g:form controller="user" action="changepwd" class="form-horizontal" role="form" >
 							
 								<div class="col-sm-9">
 									<button type="submit">Change password</button>
