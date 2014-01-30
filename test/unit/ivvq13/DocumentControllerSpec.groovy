@@ -31,12 +31,26 @@ class DocumentControllerSpec extends Specification {
 	}
 	*/
 	
-	def "wow"(){
-		when:
-		controller.view()
+	def "create document"(){
+		
+		
+		when:		
+		controller.create()
 		
 		then:
+		assert response.status == 200
 		assert response.redirectedUrl == "/document/create_page"
+	}
+	
+	def "show document list with documents"(){
+		
+		
+		when:
+		def model = controller.list()
+		
+		then:
+		assert response.status == 200
+		assert response.redirectedUrl == "/document/list"
 	}
 	
 	/*def "intent to create new document should redirect to create page"() {
