@@ -7,13 +7,17 @@
 </head>
 <body>
   <div class="body">
-  My name is ${user} <br>
+  My name is ${u.username} <br>
   
   List of documents
   
   				<g:form controller="document" action="create_page" class="form-horizontal" role="form" >
 							<div class="form-group">
-								
+								<table>
+								  <g:each in="${l}">
+								    <tr><td>Title: ${it.title}</td></tr>
+								  </g:each>
+								</table>
 								<div class="col-sm-9">
 									<button type="submit">New Document</button>
 								</div>
@@ -21,6 +25,26 @@
 							
 							
 						</g:form>
+				<g:form controller="user" action="changeusername" class="form-horizontal" role="form" >
+							
+								<div class="col-sm-9">
+									<button type="submit">Change username</button>
+								</div>
+					
+							
+							
+						</g:form>
+					
+				<g:form controller="user" action="changepassword" class="form-horizontal" role="form" >
+							
+								<div class="col-sm-9">
+									<button type="submit">Change password</button>
+								</div>
+					
+							
+							
+						</g:form>
+						
 						
   </div>
 </body>

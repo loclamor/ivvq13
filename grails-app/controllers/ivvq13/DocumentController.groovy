@@ -72,13 +72,15 @@ class DocumentController {
 	
     def list() { 
 		
-		String user = session.user.toString()
-		[user: user]
+		def user = session.user;
+//		print u
+//		[user: u]
+		
 				
 		// list results, on click on document from list redirect to document view
 		def doclist = Document.all
 		doclist.each() { print " ${it}" }; println "";
-		
+		[ l:doclist , u: user ]
 		//redirect(uri: "/document/list")	
 	}
 }
