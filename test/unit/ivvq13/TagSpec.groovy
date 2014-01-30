@@ -36,44 +36,63 @@ class TagSpec extends Specification {
 	}
 	
 	def "testNotTwiceSameTag"() {
-		Tag t1 = new Tag(name: "foo");
-		Tag t2 = new Tag(name: "foo");
+		when:
+		Tag tag1 = new Tag(name: "foo");
+		Tag tag2 = new Tag(name: "foo");
 		
-		t1.save()
-		t2.save()
+		tag1.save()
+		tag2.save()
 		
-		expect:
-		t1.validate()
-		t2.validate()
+		then:
+		assert tag1.validate()
+		assert !tag2.validate()
 	}
 	
 	def "testNoBlankName"() {
 		when:
-		def obj = new Tag(name: "")
-		obj.save()
+		def tag0 = new Tag(name: "okName")
+		def tag1 = new Tag(name: "")
+		def tag2 = new Tag(name: "\t")
+		def tag3 = new Tag(name: "\r")
+		
+		tag0.save()
+		tag1.save()
+		tag2.save()
+		tag3.save()
 	
 		then:
-		assert !obj.validate()
+		assert tag0.validate()
+		assert !tag1.validate()
+		assert !tag2.validate()
+		assert !tag3.validate()
 	}
 	
 	def "testNoNullName"() {
 		when:
-		def obj = new Tag(name: null)
-		obj.save()
+		def tag0 = new Tag(name: "okName")
+		def tag1 = new Tag(name: null)
+		
+		tag0.save()
+		tag1.save()
 	
 		then:
-		assert !obj.validate()
+		assert tag0.validate()
+		assert !tag1.validate()
 	}
 	
 	def "testSizeName"() {
 		when:
-		def obj = new Tag(name: "1")
-		def obj2 = new Tag(name: "012345678901234567890")
-		obj.save()
-		obj2.save()
-	
+		def tag0 = new Tag(name: "okName")
+		def tag1 = new Tag(name: "")
+		def tag2 = new Tag(name: "012345678901234567890123456789")
+		
+		tag0.save()
+		tag1.save()
+		tag2.save()
+		
 		then:
-		assert !obj.validate()
-		assert !obj.validate()
+		assert tag0.validate()
+		assert !tag1.validate()
+		assert !tag2.validate()
 	}
 }
