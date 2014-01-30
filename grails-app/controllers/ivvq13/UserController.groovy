@@ -48,12 +48,14 @@ class UserController {
 	
 	
 	def changeusername() {
-		redirect(uri:"/user/changenameOk")
+		//redirect(uri:"/user/changename")
 		def newusername = params.inputNewUsernameIn		
 		session.user.username = newusername
-		session.user.save( flush: true ) 
 		//flush : true = force the database save ; if not modification are eventually not stored in database on next request to the user from the database
-		redirect(uri:"/user/changenameOk")
+		session.user.save( flush: true ) 
+		//	redirect(uri:"/user/changenameOk")
+		
+	
 	}
 	
 	
