@@ -31,7 +31,7 @@ class DocumentControllerSpec extends Specification {
 	}
 	*/
 	
-	def "create document"(){
+/*	def "create document"(){
 		
 		
 		when:		
@@ -51,7 +51,7 @@ class DocumentControllerSpec extends Specification {
 		then:
 		assert response.status == 200
 		assert response.redirectedUrl == "/document/list"
-	}
+	}*/
 	
 	/*def "intent to create new document should redirect to create page"() {
 		given:
