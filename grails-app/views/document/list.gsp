@@ -7,14 +7,14 @@
 </head>
 <body>
   <div class="body">
-  My name is "${user}" <br>
+  My name is ${u.username} <br>
   
   List of documents
   
   				<g:form controller="document" action="create_page" class="form-horizontal" role="form" >
 							<div class="form-group">
 								<table>
-								  <g:each in="${list}">
+								  <g:each in="${l}">
 								    <tr><td>Title: ${it.title}</td></tr>
 								  </g:each>
 								</table>

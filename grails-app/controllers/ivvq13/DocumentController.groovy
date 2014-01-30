@@ -72,7 +72,7 @@ class DocumentController {
 	
     def list() { 
 		
-	
+		def user = session.user;
 //		print u
 //		[user: u]
 		
@@ -80,8 +80,7 @@ class DocumentController {
 		// list results, on click on document from list redirect to document view
 		def doclist = Document.all
 		doclist.each() { print " ${it}" }; println "";
-		render(view:'/list',
-			model:[list:doclist])
+		[ l:doclist , u: user ]
 		//redirect(uri: "/document/list")	
 	}
 }
