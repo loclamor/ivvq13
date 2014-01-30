@@ -34,7 +34,10 @@ class UserController {
 	}
 	
 	
-	
+	def logout() {
+		session.user = null
+		redirect(uri: "/")
+	}
 	
 	
 	def changepwd() {
