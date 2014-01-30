@@ -38,8 +38,7 @@ class UserController {
 	
 	
 	def changepassword() {
-		
-		
+		redirect(uri:"/user/changepwd")
 		def newpassword = params.inputNewPasswordIn		
 		session.user.password=newpassword
 		session.user.save( flush: true ) 
@@ -49,6 +48,7 @@ class UserController {
 	
 	
 	def changeusername() {
+		redirect(uri:"/user/changenameOk")
 		def newusername = params.inputNewUsernameIn		
 		session.user.username = newusername
 		session.user.save( flush: true ) 
