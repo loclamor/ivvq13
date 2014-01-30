@@ -14,11 +14,23 @@ class UserSpec extends Specification {
 	
 	def "changenameTest"(){
 		when:
-		controller.changeusername()
+		controller.changname()
 		
 		then:
 		assert response.redirectedUrl == "/user/changename"
 	}
+	
+	def "changenameOkTest"(){
+		when:
+		controller.changnameOk()
+		
+		then:
+		assert response.redirectedUrl == "/user/changenameOk"
+	}
+	
+	
+	
+	
 
     def cleanup() {
     }

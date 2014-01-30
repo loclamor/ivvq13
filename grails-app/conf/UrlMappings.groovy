@@ -9,9 +9,6 @@ class UrlMappings {
 		
 
         "/"(view:"/index")
-//		"/document/create"(view:"/document/create")
-//		"/document/view"(view:"/document/view")
-//		"/document/list"(view:"/document/list")
         "500"(view:'/error')
 	}
 }
