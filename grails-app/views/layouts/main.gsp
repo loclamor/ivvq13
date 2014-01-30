@@ -24,7 +24,45 @@
 		<r:layoutResources />
 	</head>
 	<body>
-		
+		<g:if test="${ session.user != null }" >
+			<nav class="navbar navbar-default" role="navigation">
+			  <div class="container-fluid">
+			    <!-- Brand and toggle get grouped for better mobile display -->
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			      <a class="navbar-brand" href="#">IVVQ13</a>
+			    </div>
+			
+			    <!-- Collect the nav links, forms, and other content for toggling -->
+			    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			      <ul class="nav navbar-nav">
+			        <li><a href="#">Document List</a></li>
+			      </ul>
+				  <!-- User options -->
+			      <ul class="nav navbar-nav navbar-right">
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> Welcome ${ session.user.username } <b class="caret"></b></a>
+			          <ul class="dropdown-menu">
+			          	<!-- uncomment when profile page is done
+			            <li><g:link controller="user" action="profil" ><span class="glyphicon glyphicon-cog"></span> Profil</g:link></li>
+			              And remove next lines when profile page is done
+			             -->
+			            <li><g:link controller="user" action="changename" ><span class="glyphicon glyphicon-cog"></span> Modify username</g:link></li>
+			            <li><g:link controller="user" action="changepwd" ><span class="glyphicon glyphicon-cog"></span> Modify password</g:link></li>
+			            <li class="divider"></li>
+			            <li><g:link controller="user" action="logout" ><span class="glyphicon glyphicon-off"></span> Log Out</g:link></li>
+			          </ul>
+			        </li>
+			      </ul>
+			    </div><!-- /.navbar-collapse -->
+			  </div><!-- /.container-fluid -->
+			</nav>
+		</g:if>
 		<g:layoutBody/>
 		
 		<r:layoutResources />
