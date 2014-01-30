@@ -11,7 +11,7 @@ import spock.lang.Specification
  */
 
 @TestFor(DocumentController)
-@Mock([Document,Attachment,Category,Group,Message,Rating,Tag,User])
+@Mock([Document,Attachment,Category,Message,Rating,Tag,User])
 class DocumentControllerSpec extends Specification {
 
 	def setup() {
