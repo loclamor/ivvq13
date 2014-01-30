@@ -32,20 +32,21 @@ class TagSpec extends Specification {
 		tags*.save()
 		
 		then:
-		Tag.list().size() == 3
+		assert Tag.list().size() == 3
 	}
 	
 	def "testNotTwiceSameTag"() {
 		when:
-		Tag tag1 = new Tag(name: "foo");
-		Tag tag2 = new Tag(name: "foo");
+		Tag tag1 = new Tag(name: "foo")
+		tag1.save(flush: true)
 		
-		tag1.save()
-		tag2.save()
-		
-		then:
+		Tag tag2 = new Tag(name: "foo")
+		tag2.save(flush: true)
+				
+		then:		
 		assert tag1.validate()
 		assert !tag2.validate()
+		assert Tag.list().size() == 1
 	}
 	
 	def "testNoBlankName"() {
