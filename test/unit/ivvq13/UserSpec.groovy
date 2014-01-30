@@ -9,10 +9,31 @@ import spock.lang.Specification
 @TestFor(User)
 class UserSpec extends Specification {
 
+	def user
+	
     def setup() {
     }
 	
-	def "changenameTest"(){
+	def "testNoNullUserName"() {
+		when:
+		def obj = new User(username: null)
+		obj.save()
+	
+		then:
+		assert !obj.validate()
+	}
+	
+	def "testNoBlankUserName"() {
+		when:
+		def obj = new User(name: "")
+		obj.save()
+	
+		then:
+		assert !obj.validate()
+	}
+	
+	
+	def "testChangeName"(){
 		when:
 		controller.changname()
 		
@@ -20,7 +41,7 @@ class UserSpec extends Specification {
 		assert response.redirectedUrl == "/user/changename"
 	}
 	
-	def "changenameOkTest"(){
+	def "testChangeNameOk"(){
 		when:
 		controller.changnameOk()
 		
