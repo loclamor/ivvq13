@@ -36,17 +36,15 @@ class TagSpec extends Specification {
 	}
 	
 	def "testNotTwiceSameTag"() {
-		setup:
 		Tag t1 = new Tag(name: "foo");
 		Tag t2 = new Tag(name: "foo");
 		
-		when:
 		t1.save()
 		t2.save()
 		
-		then:
-		assert !t1.validate()
-		assert !t2.validate()
+		expect:
+		t1.validate()
+		t2.validate()
 	}
 	
 	def "testNoBlankName"() {
