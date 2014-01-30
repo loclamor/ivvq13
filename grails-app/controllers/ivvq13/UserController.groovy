@@ -46,6 +46,9 @@ class UserController {
 		//redirect(uri:"/user/changepwdOk")
 	}
 	
+	def changepwdOk() {
+		
+	}
 	
 	//def changeusername() {
 	def changename() {

@@ -14,7 +14,7 @@
 						<h3>Here you can change your password !</h3>
 					</div>
 					<div class="col-md-6">
-						<g:form controller="document" action="list" class="form-horizontal"
+						<g:form controller="user" action="changepwdOk" class="form-horizontal"
 							role="form">
 							
 							
