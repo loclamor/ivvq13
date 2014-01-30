@@ -9,12 +9,11 @@ class DocumentController {
 		def content_ = params.content
 		def tags_ = params.tags
 		def attachments_ = params.attachments		
-		def user_ = new User(username:"alex",password:"a", email:"a@a.c");
-		user_.save()
+		def user_ = session.user
 		def c = new Category(name:category_);
 		def a = new Attachment(url:attachments_)
 		def m = new Message(content:"Welcome", author:user_, title:"Post messages here")
-		def r = new Rating(value:-1, author:user_)
+//		def r = new Rating(value:-1, author:user_)
 		def t = new Tag(name:"mytag")
 		//if category does not exist, save it, this is just for testing purposes
 		if(c.save(flush : true)) { 
@@ -23,10 +22,10 @@ class DocumentController {
 		else {
 			println "Category already exists ";
 		}
+		
 		//divide into tags
-//		def list_of_tags = tags_.split(",")
-//		println "List of tags: "+list_of_tags;
-			
+		def list_of_tags = tags_.split(",")
+							
 		//if the title is already in the database, please retry		
 		def doc = Document.findByTitleLike(title_)		
 		if( doc ) {
@@ -43,10 +42,19 @@ class DocumentController {
 			tags:t, 
 			attachments:a, 
 			messages:m, 
-			ratings:r,
+//			ratings:r,
 			content: content_
 			)
 		
+		//check if tags exist in db, if they don't, add them
+			//def db_tags = Tag.all
+			/*list_of_tags.each {
+				db_tags.each {
+						
+				}
+				
+			}*/
+				
 		if(document.save(flush : true)) {
 			println "Doc was saved"
 			redirect(uri: "/document/list")

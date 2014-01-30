@@ -8,8 +8,13 @@ import spock.lang.Specification
  */
 @TestFor(Tag)
 class TagSpec extends Specification {
+	
+	def tag
 
     def setup() {
+		//mock a person with some data (put unique violations in here so they can be tested, the others aren't needed)
+		mockForConstraintsTests(Tag, [new Tag(name: "123456789")])
+		tag = new Tag(name:"thisIsATag")
     }
 
     def cleanup() {
@@ -30,7 +35,7 @@ class TagSpec extends Specification {
 		Tag.list().size() == 3
 	}
 	
-	def "testNoDouble"() {
+	def "testNotTwiceSameTag"() {
 		setup:
 		Tag t1 = new Tag(name: "foo");
 		Tag t2 = new Tag(name: "foo");
@@ -40,11 +45,37 @@ class TagSpec extends Specification {
 		t2.save()
 		
 		then:
-		Tag.list().size() == 1
+		assert !t1.validate()
+		assert !t2.validate()
 	}
 	
 	def "testNoBlankName"() {
-		Tag t1= new Tag(name: "");
-		
+		when:
+		def obj = new Tag(name: "")
+		obj.save()
+	
+		then:
+		assert !obj.validate()
+	}
+	
+	def "testNoNullName"() {
+		when:
+		def obj = new Tag(name: null)
+		obj.save()
+	
+		then:
+		assert !obj.validate()
+	}
+	
+	def "testSizeName"() {
+		when:
+		def obj = new Tag(name: "1")
+		def obj2 = new Tag(name: "012345678901234567890")
+		obj.save()
+		obj2.save()
+	
+		then:
+		assert !obj.validate()
+		assert !obj.validate()
 	}
 }
