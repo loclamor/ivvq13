@@ -8,7 +8,7 @@ class Tag {
 	static belongsTo = Document
 	
     static constraints = {
-		name size: 3..20, blank: false, unique: true, nullable: false
+		name size: 1..20, blank: false, unique: true, nullable: false
     }
 	
 }
