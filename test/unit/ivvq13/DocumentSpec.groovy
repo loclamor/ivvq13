@@ -43,7 +43,8 @@ class DocumentSpec extends Specification {
 		doc.addToTags(tag2)
 		doc.addToMessages(message)
 		doc.setContent(contentDoc)
-		
+		doc.addToRatings(rating)
+		doc.addToAttachments(attachment)
 		
 		when:
 		doc.save()
@@ -53,7 +54,7 @@ class DocumentSpec extends Specification {
 	}
 	
 	void "test database persistance"() {
-				setup:
+		setup:
 		def contentDoc = "Test document"
 		def contentMes = "Test message"
 		def tag1 = new Tag(name:"tag 1")
@@ -78,12 +79,15 @@ class DocumentSpec extends Specification {
 		doc.addToTags(tag2)
 		doc.addToMessages(message)
 		doc.setContent(contentDoc)
-		def size_of_doc_db = Document.list.size()
+		doc.addToRatings(rating)
+		doc.addToAttachments(attachment)
+		
+		def size_of_doc_db = Document.list().size()
 		
 		when:
 		doc.save()
 		
 		then:
-		assert size_of_doc_db == Document.list.size()-1
+		assert size_of_doc_db == Document.list().size()-1
 	}
 }

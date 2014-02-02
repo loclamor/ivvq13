@@ -24,7 +24,7 @@ class AttachmentSpec extends Specification {
 		when:
 		attachment.save()
 		
-		then:
+		then: 
 		assert attachment.validate()
     }
 	
