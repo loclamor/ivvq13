@@ -4,8 +4,10 @@ import ivvq13.Category
 import ivvq13.Document
 
 class BootStrap {
-
+	
+	
     def init = { servletContext ->
+		
 		//replissage de la base seulement si elle est vide ;
 		// on considère que si il n'y a aucun user, la base est vide
 		if(User.count() == 0) {
@@ -78,6 +80,10 @@ class BootStrap {
 		else {
 			println("### Database is already initialized !")
 		}
+		
+		
+		
+		
     }
     def destroy = {
     }

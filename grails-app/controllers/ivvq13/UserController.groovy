@@ -87,6 +87,10 @@ class UserController {
 	
 	def sendEmail(){
 		
+			to "makhlouf.raouf@gmail.com"
+			subject "Hello Fred"
+			body 'How are you?'
+		 
 			/*	def mailSender = appContext.getBean( "mailSender" )
 				def message = new SimpleMailMessage()
 			
@@ -103,9 +107,7 @@ class UserController {
 				message.body = body
 			
 				mailSender.send( message )*/
-			
-			  
-		redirect(uri: "/")
+		//redirect(uri: "/")
 	}
 	
     def index() { }
