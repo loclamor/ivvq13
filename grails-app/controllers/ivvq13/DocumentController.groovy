@@ -2,8 +2,9 @@ package ivvq13
 
 class DocumentController {
 
-	DocumentService documentService
+	
 	UserService userService
+	DocumentService documentService
 	
 	def create() {
 		//create new document, then on submit, redirect to view
@@ -111,10 +112,19 @@ class DocumentController {
 	 
 	
     def list() { 
+		
+		
 		//redirect to list page		
 		def user = session.user			
-		def doclist = documentService.serviceGetAll()		
-		[ l:doclist , u: user ]
+		def doclist = documentService.serviceGetAll()
+		if ( doclist == null )	
+		{
+			[ l:"There are currently no documents in the system" , u: user ]
+		}
+		else 
+		{
+			[ l:doclist , u: user ]
+		}
 		
 	}
 }
