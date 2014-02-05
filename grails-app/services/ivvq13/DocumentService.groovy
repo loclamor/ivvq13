@@ -18,6 +18,12 @@ class DocumentService {
 	
 	def serviceGetByTitle(title) {
 		def doc = Document.findByTitle(title)
+				print doc.title
+				return doc
+	}
+	
+	def serviceGetById(docId) {
+		def doc = Document.get(docId)
 		print doc.title
 		return doc
 	}

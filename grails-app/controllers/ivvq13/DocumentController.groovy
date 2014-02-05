@@ -103,10 +103,9 @@ class DocumentController {
 		//redirect to create page		
 	}
 	
-	def view(){
+	def view(Long id){
 		//redirect to view page
-		def title_ = params.title	
-		def doc = documentService.serviceGetByTitle(title_)		
+		def doc = documentService.serviceGetById(id)		
 		[ d:doc ]
 	}
 	 

@@ -8,7 +8,7 @@
 <body>
 
 	<div class="container">
-		<g:link controller="document" action="create_page" class="form-horizontal" role="form">New Document</g:link>
+		<g:link controller="document" action="create_page" ><span class="glyphicon glyphicon-add"></span>New Document</g:link>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr><!-- title line -->
@@ -22,12 +22,10 @@
 				<g:each in="${l}" var="doc">
 					<tr><!-- document line -->
 						<td>
-							<g:form controller="document" action="view" class="form-horizontal" role="form">
+							<g:link controller="document" action="view" id="${ doc.id }" >
 								${doc.title}
-								<input type="hidden" name="title" value="${doc.title}" />								
-								<button class="btn btn-default">Check out !</button>
-								<br/>
-							</g:form>
+							</g:link>
+							<br/>
 							<g:each in="${doc.tags}" var="tag">
 								<span class="label label-default">${ tag.name }</span>
 							</g:each>
