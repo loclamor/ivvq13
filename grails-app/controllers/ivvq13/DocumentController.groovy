@@ -2,6 +2,9 @@ package ivvq13
 
 class DocumentController {
 
+	DocumentService documentService
+	UserService userService
+	
 	def create() {
 		//create new document, then on submit, redirect to view
 		def title_ = params.title
@@ -95,27 +98,24 @@ class DocumentController {
 		}	
 			
 	}
-	
+	 
 	def create_page() {
-		//redirect to create page
+		//redirect to create page		
 	}
 	
 	def view(){
-		redirect(uri: "/document/create_page")
+		//redirect to view page
+		def title_ = params.title	
+		def doc = documentService.serviceGetByTitle(title_)		
+		[ d:doc ]
 	}
-	
+	 
 	
     def list() { 
-		
-		def user = session.user;
-//		print u
-//		[user: u]
-		
-				
-		// list results, on click on document from list redirect to document view
-		def doclist = Document.all
-		doclist.each() { print " ${it}" }; println "";
+		//redirect to list page		
+		def user = session.user			
+		def doclist = documentService.serviceGetAll()		
 		[ l:doclist , u: user ]
-		//redirect(uri: "/document/list")	
+		
 	}
 }

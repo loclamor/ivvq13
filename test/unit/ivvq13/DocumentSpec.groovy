@@ -11,6 +11,8 @@ import spock.lang.Specification
 @Mock([Document,Attachment,Category,Message,Rating,Tag,User])
 class DocumentSpec extends Specification {
 
+	//The purpose of this class is to test the document
+	
 	def setup() {
 	}
 

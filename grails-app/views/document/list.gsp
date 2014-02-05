@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="layout" content="main" />
-<title>Insert title here</title>
+<title>Document List</title>
 </head>
 <body>
 
@@ -22,7 +22,12 @@
 				<g:each in="${l}" var="doc">
 					<tr><!-- document line -->
 						<td>
-							${doc.title}<br/>
+							<g:form controller="document" action="view" class="form-horizontal" role="form">
+								${doc.title}
+								<input type="hidden" name="title" value="${doc.title}" />								
+								<button class="btn btn-default">Check out !</button>
+								<br/>
+							</g:form>
 							<g:each in="${doc.tags}" var="tag">
 								<span class="label label-default">${ tag.name }</span>
 							</g:each>
