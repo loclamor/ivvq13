@@ -8,31 +8,22 @@ import spock.lang.Specification
  */
 @TestFor(Rating)
 class RatingSpec extends Specification {
-	
-	def rating
 
     def setup() {
-		//mock a person with some data (put unique violations in here so they can be tested, the others aren't needed)
-		mockForConstraintsTests(Rating, [new Rating(name: "123456789")])
-		rating = new Rating(name:"thisIsATag")
     }
 
     def cleanup() {
     }
 
-    def "testCreation"() {
+    def "create rating"() {
 		setup:
-		def rating = new Rating(value: 1)
-		def ratings = [
-				new Rating(value: 2),
-				new Rating(value: 3)]
+		def rating = new Rating(value: 3, author: null)
 		
 		when:
-		rating.save()
-		ratings*.save(flush: true)
+		rating.save(flush: true)
 		
 		then:
-		assert Rating.list().size() == 3
+		assert rating.validate()
 	}
 	
 	def "testRatingRange"() {
@@ -52,5 +43,6 @@ class RatingSpec extends Specification {
 		assert rating1.validate()
 		assert rating2.validate()
 		assert !rating3.validate()
+
 	}
 }
