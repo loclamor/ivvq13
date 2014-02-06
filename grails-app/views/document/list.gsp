@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="layout" content="main" />
-<title>Insert title here</title>
+<title>Document List</title>
 </head>
 <body>
 
 	<div class="container">
-		<g:link controller="document" action="create_page" class="form-horizontal" role="form">New Document</g:link>
+		<g:link controller="document" action="create_page" ><span class="glyphicon glyphicon-add"></span>New Document</g:link>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr><!-- title line -->
@@ -22,7 +22,10 @@
 				<g:each in="${l}" var="doc">
 					<tr><!-- document line -->
 						<td>
-							${doc.title}<br/>
+							<g:link controller="document" action="view" id="${ doc.id }" >
+								${doc.title}
+							</g:link>
+							<br/>
 							<g:each in="${doc.tags}" var="tag">
 								<span class="label label-default">${ tag.name }</span>
 							</g:each>

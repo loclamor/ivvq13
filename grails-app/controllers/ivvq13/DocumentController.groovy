@@ -2,6 +2,10 @@ package ivvq13
 
 class DocumentController {
 
+	
+	UserService userService
+	DocumentService documentService
+	
 	def create() {
 		//create new document, then on submit, redirect to view
 		def title_ = params.title
@@ -95,27 +99,32 @@ class DocumentController {
 		}	
 			
 	}
-	
+	 
 	def create_page() {
-		//redirect to create page
+		//redirect to create page		
 	}
 	
-	def view(){
-		redirect(uri: "/document/create_page")
+	def view(Long id){
+		//redirect to view page
+		def doc = documentService.serviceGetById(id)		
+		[ d:doc ]
 	}
-	
+	 
 	
     def list() { 
 		
-		def user = session.user;
-//		print u
-//		[user: u]
 		
-				
-		// list results, on click on document from list redirect to document view
-		def doclist = Document.all
-		doclist.each() { print " ${it}" }; println "";
-		[ l:doclist , u: user ]
-		//redirect(uri: "/document/list")	
+		//redirect to list page		
+		def user = session.user			
+		def doclist = documentService.serviceGetAll()
+		if ( doclist == null )	
+		{
+			[ l:"There are currently no documents in the system" , u: user ]
+		}
+		else 
+		{
+			[ l:doclist , u: user ]
+		}
+		
 	}
 }
