@@ -22,6 +22,24 @@ class RatingService {
 		if( nbRate == 0)
 			return 0
 		
-		return rate / nbRate
+		rate = rate / nbRate
+		
+		return Math.round( rate.floatValue() )
     }
+	
+	def rateOnDocument( Document doc, Rating rate) {
+		def user = rate.author
+		
+		doc.ratings.each {
+			if( it.author.id == user.id )
+				return false
+		}
+		
+		//here the user have not rate the doc
+		rate.save(flush:true)
+		doc.addToRatings( rate )
+		doc.save(flush:true)
+		return true
+	}
+	
 }

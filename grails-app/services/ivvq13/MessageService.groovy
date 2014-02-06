@@ -8,4 +8,13 @@ class MessageService {
     def serviceMethod() {
 
     }
+	
+	def getMesagesFromDocument ( Long docId ) {
+		
+		def doc = Document.get(docId)
+		if( doc == null )
+			return []
+		
+		return doc.messages
+	}
 }

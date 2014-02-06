@@ -6,6 +6,7 @@ class DocumentController {
 	UserService userService
 	DocumentService documentService
 	RatingService ratingService
+	MessageService messageService
 	
 	def create() {
 		//create new document, then on submit, redirect to view
@@ -35,7 +36,12 @@ class DocumentController {
 	def view(Long id){
 		//redirect to view page
 		def doc = documentService.serviceGetById(id)
-		[ d:doc, rate: ratingService.getRatingForDocument( doc.id)]
+		[ 
+			document: doc,
+			tags: doc.tags,
+			rate: ratingService.getRatingForDocument( doc.id),
+			messages: messageService.getMesagesFromDocument(doc.id)
+		]
 	}
 	 
 	
