@@ -22,32 +22,20 @@ class DocumentControllerSpec extends Specification {
 	def cleanup() {
 	}
 	
-	def "list function should redirect to list page"() {
 	
-		given:
-		//this shit returns null because there is nothing in DB !
-		def model = controller.list() 
-
-	    expect:
-	    response.status == 200
-	    model.view == '/document/list'		
-			
-	}
-	
-	def "create function should redirect to list page"() {
 		
-	}
-	
-	def "create_page function should redirect to create page view"() {
-		
-		given:
-		def model = controller.create_page()
-
-	    expect:
-	    response.status == 200
-	    modelAndView == '/document/create_page'		
-		
-	}
+//	def "Document controller unit tests: list get id -> view page"() {
+//		setup:
+//		def docService = Mock(DocumentService)
+//		
+//		
+//		when:
+//		
+//		controller.view(0)
+//		
+//		then:		
+//		
+//	}
 	
 	
 }
