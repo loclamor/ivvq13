@@ -29,11 +29,11 @@
 								<div class="col-sm-9">
 									
 										<select class="form-control" id="category" name="category">
-											  <option value="default" selected="selected">Please select from the options below:</option>
-											  <option value="volvo">Volvo</option>
-											  <option value="saab">Saab</option>
-											  <option value="mercedes">Mercedes</option>
-											  <option value="audi">Audi</option>
+											  <option value="Global" selected="selected">Please select from the options below:</option>
+											  <option value="Programming Languages">Programming Languages</option>
+											  <option value="Frameworks">Frameworks</option>
+											  <option value="Software Technologies">Software Technologies</option>
+											  <option value="Verification Tools">Verification tools</option>
 										</select>
 								</div>
 							</div>

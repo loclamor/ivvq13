@@ -38,22 +38,37 @@ class BootStrap {
 			println("	### Tags 'tag1' and 'tag2' created")
 			
 			//creation de categories
-			def cat1 = new Category( name : 'cat1' )
+			def cat1 = new Category( name : 'Programming Languages' )
 			if(!cat1.save(flush:true)){
 				println("erreur enregistrement cat1");
 				cat1.errors.allErrors.each( {e -> println (e) } )
 			}
 			
-			def cat2 = new Category( name : 'cat2' )
+			def cat2 = new Category( name : 'Frameworks' )
 			if(!cat2.save(flush:true)){
 				println("erreur enregistrement cat2");
 				cat2.errors.allErrors.each( {e -> println (e) } )
 			}
-			println("	### Categories 'cat1' and 'cat2' created")
+			
+			def cat3 = new Category( name : 'Software Technologies' )
+			if(!cat3.save(flush:true)){
+				println("erreur enregistrement cat3");
+				cat3.errors.allErrors.each( {e -> println (e) } )
+			}
+			
+			def cat4 = new Category( name : 'Verification tools' )
+			if(!cat4.save(flush:true)){
+				println("erreur enregistrement cat4");
+				cat4.errors.allErrors.each( {e -> println (e) } )
+			}
+			
+			println("	### Categories 'cat1', 'cat2', 'cat3', 'cat4' created")
+			
+			
 			
 			//creation d'un document
 			def theUser = User.findByUsername("toto")
-			def theCat = Category.findByName("cat1")
+			def theCat = Category.findByName("Software Technologies")
 			def doc1 = new Document(
 				title: "un super document trop bien ta vue", 
 				category: theCat, 
