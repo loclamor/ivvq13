@@ -1,6 +1,6 @@
-
 package ivvq13
 
+import java.lang.ProcessBuilder.Redirect;
 import grails.test.mixin.*
 import spock.lang.Specification
 
@@ -36,6 +36,24 @@ class DocumentControllerSpec extends Specification {
 //		then:		
 //		
 //	}
+	
+	def "Document controller unit tests: create -> list page"() {
+			when:	
+			controller.create()
+	
+			then:
+			assert response.redirectedUrl == "/document/create_page"
+	
+	}
+	
+	def "Document controller unit tests: create fail title -> create_page page"() {
+		when:
+		controller.create()
+
+		then:
+		assert response.redirectedUrl == "/document/create_page"
+
+	}
 	
 	
 }

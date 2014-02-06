@@ -12,7 +12,7 @@ class DocumentService {
 		def doc = Document.findByTitleLike(title_)
 		if( doc ) {
 			println "A doc with this title already exists in the database";
-			res = "/document/create_page"
+			res = false
 			return res
 		}
 	
@@ -54,7 +54,7 @@ class DocumentService {
 			}
 		}
 		
-		res = "/document/list"
+		res = true
 		return res
 		
 		
@@ -67,15 +67,14 @@ class DocumentService {
 		return doclist
 	}
 	
-	def serviceGetByTitle(title) {
-		def doc = Document.findByTitle(title)
-				print doc.title
-				return doc
-	}
+//	def serviceGetByTitle(title) {
+//		def doc = Document.findByTitle(title)
+//				print doc.title
+//				return doc
+//	}
 	
 	def serviceGetById(docId) {
 		def doc = Document.get(docId)
-		print doc.title
 		return doc
 	}
 	

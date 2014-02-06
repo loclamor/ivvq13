@@ -25,7 +25,13 @@ class DocumentController {
 			attachments_,
 			user_)
 		
-		redirect(uri: res)
+		if (res == true) {
+			redirect(uri: "/document/list")
+		}
+		else {
+			redirect(uri: "/document/create_page")
+		}
+		
 				
 	}
 	 
