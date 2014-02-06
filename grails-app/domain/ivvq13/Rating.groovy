@@ -13,6 +13,7 @@ class Rating {
 	
     static constraints = {
 		value (range: 0..5)
+		author (nullable: true)
     }
 
 }
