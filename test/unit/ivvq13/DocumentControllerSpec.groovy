@@ -14,7 +14,7 @@ class DocumentControllerSpec extends Specification {
 
 	
 	//The purpose of this class is to test the document controller. redirects only !
-	
+	//There is no point in testing whether the controller redirects to method name
 	def setup() {
 		
 	}
