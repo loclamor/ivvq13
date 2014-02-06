@@ -25,12 +25,12 @@ class BootStrap {
 			println("	### Users 'toto'/'tata' and 'a'/'a' created")
 			
 			//creation de tags
-			def tag1 = new Tag( name : "tag1" )
+			def tag1 = new Tag( name : "java" )
 			if(!tag1.save(flush:true)){
 				println("erreur enregistrement tag1");
 				tag1.errors.allErrors.each( {e -> println (e) } )
 			}
-			def tag2 = new Tag( name : "tag2" )
+			def tag2 = new Tag( name : "grails" )
 			if(!tag2.save(flush:true)){
 				println("erreur enregistrement tag2");
 				tag2.errors.allErrors.each( {e -> println (e) } )
@@ -64,19 +64,27 @@ class BootStrap {
 			
 			println("	### Categories 'cat1', 'cat2', 'cat3', 'cat4' created")
 			
-			
-			
 			//creation d'un document
 			def theUser = User.findByUsername("toto")
 			def theCat = Category.findByName("Software Technologies")
 			def doc1 = new Document(
-				title: "un super document trop bien ta vue", 
+				title: "Lorem Ipsum", 
 				category: theCat, 
 				user:theUser, 
-				content: "Some content of the document, so crazy !"
+				content: "Lorem Ipsum is simply dummy text" 
+				+"of the printing and typesetting industry. "
+				+"Lorem Ipsum has been the industry's standard "
+				+"dummy text ever since the 1500s, when an unknown "
+				+"printer took a galley of type and scrambled it "
 			)
-			def theTag = Tag.findByName( "tag1" )
+			def theTag = Tag.findByName( "java" )
+			def theTag2 = Tag.findByName( "grails" )
 			doc1.addToTags( theTag )
+			doc1.addToTags( theTag2 )
+			if(!doc1.save(flush:true)){
+				println("erreur enregistrement doc1");
+				doc1.errors.allErrors.each( {e -> println (e) } )
+			}			
 			if(!doc1.save(flush:true)){
 				println("erreur enregistrement doc1");
 				doc1.errors.allErrors.each( {e -> println (e) } )
@@ -85,6 +93,11 @@ class BootStrap {
 			if(!theTag.save(flush:true)){
 				println("erreur enregistrement theTag");
 				theTag.errors.allErrors.each( {e -> println (e) } )
+			}
+			theTag2.addToDocuments( doc1 );
+			if(!theTag2.save(flush:true)){
+				println("erreur enregistrement theTag2");
+				theTag2.errors.allErrors.each( {e -> println (e) } )
 			}
 			println("	### Document 'doc1' created")
 			
