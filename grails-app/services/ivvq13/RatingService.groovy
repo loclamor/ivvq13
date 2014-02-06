@@ -18,6 +18,10 @@ class RatingService {
 			rate += it.value
 			nbRate++
 		}
+		
+		if( nbRate == 0)
+			return 0
+		
 		return rate / nbRate
     }
 }
