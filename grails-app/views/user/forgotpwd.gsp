@@ -21,8 +21,8 @@
 							<div class="form-group">
 								<label for="inputUsernameUp" class="col-sm-3 control-label">E-mail or phone:</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="inputUsernameUp"
-										name="inputUsernameUp" placeholder="E-mail or Phone">
+									<input type="text" class="form-control" id="inputUserEmailUp"
+										name="inputUserEmailUp" placeholder="E-mail or Phone"></input>
 								</div>
 							</div>
 						

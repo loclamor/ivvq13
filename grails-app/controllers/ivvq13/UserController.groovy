@@ -5,6 +5,8 @@ import org.springframework.mail.SimpleMailMessage
 class UserController {
 
 	UserService userService
+	
+
 	def signin() {
 		def username = params.inputUsernameIn
 		def password = params.inputPasswordIn
@@ -80,29 +82,16 @@ class UserController {
 	}
 	
 	def sendEmail(){
-		
-			to "makhlouf.raouf@gmail.com"
+		sendMail {
+			to "makhlouf.raouf@gmail.com "
+			//def baduser = params.inputUserEMailIn
+			//to baduser
 			subject "Hello Fred"
 			body 'How are you?'
-		 
-			/*	def mailSender = appContext.getBean( "mailSender" )
-				def message = new SimpleMailMessage()
-			
-				// Set properties
-				message.from=""
-				message.to = 'user@domain.com'
-				message.subject = 'subject'
-			
-				def body = "Dear ${session.user},"
-				body = body + "rn You have a new message"
-				body = body + " to view this message go here."
-				body = body + "rnhttp://domain.com/send/email"
-			
-				message.body = body
-			
-				mailSender.send( message )*/
-		//redirect(uri: "/")
+		} 	
 	}
 	
-    def index() { }
+    def index() { 
+		redirect(uri: "/")
+	}
 }
