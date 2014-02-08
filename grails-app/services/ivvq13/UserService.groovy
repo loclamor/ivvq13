@@ -8,4 +8,7 @@ class UserService {
     def serviceGetSessionUser() {
 		return session.user
     }
+	
+	
+	
 }

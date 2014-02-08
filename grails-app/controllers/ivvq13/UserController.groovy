@@ -4,11 +4,12 @@ import org.springframework.mail.SimpleMailMessage
 
 class UserController {
 
+	UserService userService
 	def signin() {
 		def username = params.inputUsernameIn
 		def password = params.inputPasswordIn
 		
-		def user = User.findByUsernameAndPassword( username, password )
+		def user = User.findByUsernameAndPassword( username, password )	
 		if( !user ) {
 			redirect(uri: "/")
 			return
