@@ -1,6 +1,6 @@
-
 package ivvq13
 
+import java.lang.ProcessBuilder.Redirect;
 import grails.test.mixin.*
 import spock.lang.Specification
 
@@ -22,31 +22,37 @@ class DocumentControllerSpec extends Specification {
 	def cleanup() {
 	}
 	
-	def "list function should redirect to list page"() {
 	
-		given:
-		//this shit returns null because there is nothing in DB !
-		def model = controller.list() 
-
-	    expect:
-	    response.status == 200
-	    model.view == '/document/list'		
-			
+		
+//	def "Document controller unit tests: list get id -> view page"() {
+//		setup:
+//		def docService = Mock(DocumentService)
+//		
+//		
+//		when:
+//		
+//		controller.view(0)
+//		
+//		then:		
+//		
+//	}
+	
+	def "Document controller unit tests: create -> list page"() {
+			when:	
+			controller.create()
+	
+			then:
+			assert response.redirectedUrl == "/document/create_page"
+	
 	}
 	
-	def "create function should redirect to list page"() {
-		
-	}
-	
-	def "create_page function should redirect to create page view"() {
-		
-		given:
-		def model = controller.create_page()
+	def "Document controller unit tests: create fail title -> create_page page"() {
+		when:
+		controller.create()
 
-	    expect:
-	    response.status == 200
-	    modelAndView == '/document/create_page'		
-		
+		then:
+		assert response.redirectedUrl == "/document/create_page"
+
 	}
 	
 	

@@ -15,7 +15,8 @@ class Document {
 		]
   
 	static constraints = {
-    }
+	  content type:'text'
+	}
 
 	 
 }
