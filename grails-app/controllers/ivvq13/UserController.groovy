@@ -66,14 +66,7 @@ class UserController {
 		
 		//set username and save
 		user.setUsername( newusername )
-		if(!user.save(flush:true)){
-			println("erreur enregistrement user");
-			user.errors.allErrors.each( {e -> println (e) } )
-			//on error, redirect on username change
-			redirect( action: "changename" )
-			return
-		}
-		
+	
 		// here user is safely saved, store it in session
 		session.user = User.get( user.id )
 	}
