@@ -31,6 +31,20 @@ class UserSpec extends Specification {
 		assert User.list().size() == 3
 	}
 	
+	def "testNotTwiceUserName"() {
+		when:
+		def user1 = new User(username: "UserTiti",password :"password2",email :"email2")
+		user1.save(flush: true)
+		
+		User user2 = new User(username: "UserTiti")
+		user2.save(flush: true)
+				
+		then:
+		assert user1.validate()
+		assert !user2.validate()
+		assert User.list().size() == 1
+	}
+	
 
 	def "testNoNullUserName"() {
 		when:
@@ -65,18 +79,6 @@ class UserSpec extends Specification {
 		assert !user3.validate()
 	}
 
-/*	def "testNotTwiceSameUsername"() {
-		when:
-		User user0 = new User(username: "name",password :"password0",email :"email0")
-		user0.save(flush: true)
-		User user1 = new User(username: "name",password :"password1",email :"email1")
-		user1.save(flush: true)
-						
-		then:
-		assert user0.validate()
-		assert !user1.validate()
-		assert User.list().size() == 1
-	}*/
 	
 	def cleanup() {
 	}
