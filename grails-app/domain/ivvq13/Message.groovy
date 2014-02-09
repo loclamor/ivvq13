@@ -8,7 +8,11 @@ class Message {
 	User author
 	
     static constraints = {
-    } 
+    }
+	
+	static mapping = {
+		content type: 'text'
+	 }
 	
 }
  

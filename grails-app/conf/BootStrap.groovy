@@ -1,7 +1,10 @@
+import java.security.MessageDigest;
+
 import ivvq13.User
 import ivvq13.Tag
 import ivvq13.Category
 import ivvq13.Document
+import ivvq13.Message
 
 class BootStrap {
 	
@@ -134,10 +137,22 @@ class BootStrap {
 				theTag3.errors.allErrors.each( {e -> println (e) } )
 			}
 			
+			def message1 = new Message( author:theUser2, title:"a title", content:"Ahahah. Excellent.")
+			if(!message1.save(flush:true)){
+				println("erreur enregistrement message1");
+				message1.errors.allErrors.each( {e -> println (e) } )
+			}
+			def theMessage1 = Message.findByTitle("a title")
+			doc2.addToMessages( theMessage1 )
+			
 			if(!doc2.save(flush:true)){
 				println("erreur enregistrement doc2");
 				doc2.errors.allErrors.each( {e -> println (e) } )
 			}
+			
+			
+			
+			
 			println("	### Document 'doc2' created")
 			
 			
