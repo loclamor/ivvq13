@@ -63,7 +63,11 @@ class DocumentController {
 		}
 		else 
 		{
-			[ l:doclist , u: user ]
+			def rates = []
+			doclist.each {
+				rates.add( ratingService.getRatingForDocument( it.id ) )
+			}
+			[ l:doclist , u: user, rates:rates ]
 		}
 		
 	}

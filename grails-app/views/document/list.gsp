@@ -19,6 +19,7 @@
 				</tr>
 			</thead>
 			<tbody>
+				<g:set var="i" value="${ 0 }" />
 				<g:each in="${l}" var="doc">
 					<tr><!-- document line -->
 						<td>
@@ -26,20 +27,27 @@
 								${doc.title}
 							</g:link>
 							<br/>
+							<span class="glyphicon glyphicon-tags"></span>&nbsp;
 							<g:each in="${doc.tags}" var="tag">
-								<span class="label label-default">${ tag.name }</span>
+								<span class="label label-default">${ tag.name }</span>&nbsp;
 							</g:each>
 						</td>
 						<td>${doc.category.name}</td>
 						<td>${doc.user.username}</td>
 						<td style="color: orange;">
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star"></span>
-							<span class="glyphicon glyphicon-star-empty"></span>
+							<g:set var="r" value="${ 0 }" />
+							<g:set var="rate" value="${ rates[i] }" />
+							<g:while test="${ r++ < 5 }">
+								<g:if test="${ r <= rate }" >
+									<span class="glyphicon glyphicon-star"></span>
+								</g:if>
+								<g:else>
+									<span class="glyphicon glyphicon-star-empty"></span>
+								</g:else>
+							</g:while>
 						</td>
 					</tr>
+					<g:set var="i" value="${ i = i + 1 }" />
 				</g:each>
 			</tbody>
 		</table>
