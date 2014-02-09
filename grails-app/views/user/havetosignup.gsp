@@ -19,8 +19,6 @@
 							<button type="submit">Return</button>
 						</div>
 					</g:form>
-
-
 				</div>
 			</div>
 		</div>
