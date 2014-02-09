@@ -74,7 +74,9 @@ class UserController {
 	}
 	
 	
-	
+	def index() {
+		redirect(uri: "/")
+	}
 	
 	
 	def forgotpwd(){
@@ -82,16 +84,23 @@ class UserController {
 	}
 	
 	def sendEmail(){
-		sendMail {
-			to "makhlouf.raouf@gmail.com "
-			//def baduser = params.inputUserEMailIn
-			//to baduser
+		def email = params.inputUserEmailUp
+		def user = User.findByEmail( email )
+		if( !user ) {
+			
+		redirect(controller: "user", action: "havetosignup")
+			return
+		}
+		sendMail (){			
+			to email
 			subject "Hello Fred"
 			body 'How are you?'
 		} 	
 	}
 	
-    def index() { 
-		redirect(uri: "/")
+	def havetosignup(){
 	}
-}
+
+	}
+    
+

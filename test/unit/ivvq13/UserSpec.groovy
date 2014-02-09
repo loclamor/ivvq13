@@ -80,6 +80,15 @@ class UserSpec extends Specification {
 	}
 
 	
+	
+	/*def "testUserSignin"() {
+	def user = new UserController()
+	user.params.username = "marcpalmer"
+	user.params.password = "secret"
+	user.signup()
+	}*/
+	
+	
 	def cleanup() {
 	}
 

@@ -13,7 +13,8 @@ class BootStrap {
 		if(User.count() == 0) {
 			println("### initializing...")
 			//creation d'utilisateurs de test
-			def user1 = new User(username : "toto", password : "tata", email : "toto@yopmail.com" )
+			def user1 = new User(username : "toto", password : "tata", email : "makhlouf.raouf@gmail.com" )
+//			def user1 = new User(username : "toto", password : "tata", email : "toto@yopmail.com" )
 			if(!user1.save(flush:true)){
 				println("erreur enregistrement user1");
 				user1.errors.allErrors.each( {e -> println (e) } )
