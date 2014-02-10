@@ -97,7 +97,7 @@ grails.project.dependency.resolution = {
 		// plugins for testing
 		test ":spock:0.7"
 		test ":code-coverage:1.2.7"
-		//test ":geb:0.9.2"
+		test ":geb:0.9.2"
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
         runtime ":database-migration:1.3.8"

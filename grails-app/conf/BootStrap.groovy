@@ -70,28 +70,37 @@ class BootStrap {
 			println("	### Tags 'tag1' 'tag2' 'tag3' and 'tag4' created")
 			
 			//creation de categories
-			def cat1 = new Category( name : 'J2EE' )
+						//creation de categories
+			def cat1 = new Category( name : 'Programming Languages' )
 			if(!cat1.save(flush:true)){
 				println("erreur enregistrement cat1");
 				cat1.errors.allErrors.each( {e -> println (e) } )
 			}
 			
-			def cat2 = new Category( name : 'cat2' )
+			def cat2 = new Category( name : 'Frameworks' )
 			if(!cat2.save(flush:true)){
 				println("erreur enregistrement cat2");
 				cat2.errors.allErrors.each( {e -> println (e) } )
 			}
 			
-			def cat3 = new Category( name : 'OS' )
+			def cat3 = new Category( name : 'Software Technologies' )
 			if(!cat3.save(flush:true)){
 				println("erreur enregistrement cat3");
 				cat3.errors.allErrors.each( {e -> println (e) } )
 			}
-			println("	### Categories 'cat1' cat2' and 'OS' created")
+			
+			def cat4 = new Category( name : 'Verification tools' )
+			if(!cat4.save(flush:true)){
+				println("erreur enregistrement cat4");
+				cat4.errors.allErrors.each( {e -> println (e) } )
+			}
+			println("	### Categories 'cat1', 'cat2', 'cat3', 'cat4' created")
+			
+
 			
 			//creation d'un document1
 			def theUser = User.findByUsername("Silvana")
-			def theCat = Category.findByName("J2EE")
+			def theCat = Category.findByName("Frameworks")
 			def doc1 = new Document(
 				title: "Spring Developer Suite", 
 				category: theCat, 
@@ -115,7 +124,7 @@ class BootStrap {
 			
 			//creation d'un document 2
 			def theUser2 = User.findByUsername("Paolo")
-			def theCat3 = Category.findByName("OS")
+			def theCat3 = Category.findByName("Software Technologies")
 			def doc2 = new Document(
 				title: "Linux and Unix sudo command",
 				category: theCat3,

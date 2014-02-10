@@ -125,10 +125,23 @@ class DocumentControllerSpec extends Specification {
 		def model = controller.list()
 		
 		expect:
+		assert model.l.size() == 0
+		//assert controller.response.status == 200
+		
+	}
+	
+	def "Document controller unit test: list -> there are no docs"()	{
+		setup:
+		def mydoc = Document.get(1)
+		mydoc.delete()
+		def model = controller.list()
+		
+		expect:
 		assert model.l == "There are currently no documents in the system"
 		//assert controller.response.status == 200
 		
 	}
+
 
 	
 }

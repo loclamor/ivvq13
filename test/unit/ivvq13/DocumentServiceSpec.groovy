@@ -16,7 +16,16 @@ class DocumentServiceSpec extends Specification {
 	//The purpose of this class is to test the document service
 	
 	def setup() {
+		def categ = new Category(name:"OS")
+		categ.save()
 		
+		def title_ = "title"
+		def category_ = "OS"
+		def content_ = "my content"
+		def tags_ = "a,b,c"
+		def attachments_ = "attach"
+		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
+		user_.save()
 	}
 
 	def cleanup() {
@@ -38,16 +47,7 @@ class DocumentServiceSpec extends Specification {
 	void "Document service unit test : serviceCreateDocument success"() {
 		setup:
 		//persist a document, check it out
-		def categ = new Category(name:"OS")
-		categ.save()
 		
-		def title_ = "title"
-		def category_ = "OS"
-		def content_ = "my content"
-		def tags_ = "a,b,c"
-		def attachments_ = "attach"
-		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
-		user_.save()		
 		def res = service.serviceCreateDocument(
 			title_,
 			category_,
@@ -65,16 +65,7 @@ class DocumentServiceSpec extends Specification {
 	void "Document service unit test : serviceCreateDocument fail (same title) "() {
 		setup:
 		//persist a document, check it out
-		def categ = new Category(name:"OS")
-		categ.save()
 		
-		def title_ = "title"
-		def category_ = "OS"		
-		def content_ = "my content"
-		def tags_ = "a,b,c"
-		def attachments_ = "attach"
-		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
-		user_.save()
 		def res = service.serviceCreateDocument(
 			title_,
 			category_,
@@ -109,16 +100,7 @@ class DocumentServiceSpec extends Specification {
 	void "Document service unit test : serviceGetById success"() {
 		setup:
 		//persist a document, check it out
-		def categ = new Category(name:"OS")
-		categ.save()
 		
-		def title_ = "title"
-		def category_ = "OS"
-		def content_ = "my content"
-		def tags_ = "a,b,c"
-		def attachments_ = "attach"
-		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
-		user_.save()
 		def res = service.serviceCreateDocument(
 			title_,
 			category_,

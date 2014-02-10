@@ -57,7 +57,7 @@ class DocumentController {
 		//redirect to list page		
 		def user = session.user			
 		def doclist = documentService.serviceGetAll()
-		if ( doclist == null )	
+		if ( doclist.size() == 0 )	
 		{
 			[ l:"There are currently no documents in the system" , u: user ]
 		}
