@@ -64,7 +64,22 @@ grails.project.dependency.resolution = {
 		enabledByDefault = true
 	 }
 	
-
+	codenarc.reports = {
+		// Each report definition is of the form:
+		//    REPORT-NAME(REPORT-TYPE) {
+		//        PROPERTY-NAME = PROPERTY-VALUE
+		//        PROPERTY-NAME = PROPERTY-VALUE
+		//    }
+	
+		MyXmlReport('xml') {                    // The report name "MyXmlReport" is user-defined; Report type is 'xml'
+			outputFile = 'CodeNarc-Report.xml'  // Set the 'outputFile' property of the (XML) Report
+			title = 'Our Report'             // Set the 'title' property of the (XML) Report
+		}
+		MyHtmlReport('html') {                  // Report type is 'html'
+			outputFile = 'CodeNarc-Report.html'
+			title = 'Our Report'
+		}
+	}
 
     plugins {
         // plugins for the build system only
@@ -76,7 +91,7 @@ grails.project.dependency.resolution = {
 		
 		//Raouf: what I added  look in http://grails.org/plugin/mail
 		compile ":mail:1.0.1"
-		
+		compile ":codenarc:0.20"
 		// plugins for testing
 		test ":spock:0.7"
 		test ":code-coverage:1.2.7"

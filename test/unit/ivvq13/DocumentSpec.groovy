@@ -8,6 +8,7 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
  */
 @TestMixin(GrailsUnitTestMixin)
+
 @Mock([Document,Attachment,Category,Message,Rating,Tag,User])
 class DocumentSpec extends Specification {
 

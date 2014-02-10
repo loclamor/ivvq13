@@ -9,6 +9,7 @@ import spock.lang.Specification
  */
 
 @TestMixin(GrailsUnitTestMixin)
+
 @Mock([Document,Attachment,Category,Message,Rating,Tag,User])
 class DocumentServiceSpec extends Specification { 
 
@@ -37,8 +38,11 @@ class DocumentServiceSpec extends Specification {
 	void "Document service unit test : serviceCreateDocument success"() {
 		setup:
 		//persist a document, check it out
+		def categ = new Category(name:"OS")
+		categ.save()
+		
 		def title_ = "title"
-		def category_ = "category"
+		def category_ = "OS"
 		def content_ = "my content"
 		def tags_ = "a,b,c"
 		def attachments_ = "attach"
@@ -58,55 +62,78 @@ class DocumentServiceSpec extends Specification {
 
 	}
 	
+	void "Document service unit test : serviceCreateDocument fail (same title) "() {
+		setup:
+		//persist a document, check it out
+		def categ = new Category(name:"OS")
+		categ.save()
+		
+		def title_ = "title"
+		def category_ = "OS"		
+		def content_ = "my content"
+		def tags_ = "a,b,c"
+		def attachments_ = "attach"
+		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
+		user_.save()
+		def res = service.serviceCreateDocument(
+			title_,
+			category_,
+			content_,
+			tags_,
+			attachments_,
+			user_)
+				
+		def title2_ = "title"
+		def category2_ = "OS"
+		def content2_ = "my content"
+		def tags2_ = "a,b,c"
+		def attachments2_ = "attach"
+		def user2_ = new User(username: "alex", password: "alex", email:"a@a.c")
+		user2_.save()
+		def res2 = service.serviceCreateDocument(
+			title2_,
+			category2_,
+			content2_,
+			tags2_,
+			attachments2_,
+			user2_)
+			 
 	
+		expect:
+		assert res == true
+		assert res2 == false
+
+	}
 	
-//	void "Document service unit test : serviceGetById "() {
-//		setup:
-//		//persist a document, check it out
-//		def title_ = "title"
-//		def category_ = "category"
-//		def content_ = "my content"
-//		def tags_ = "a,b,c"
-//		def attachments_ = "attach"
-//		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
-//		user_.save()		
-//		def res = service.serviceCreateDocument(
-//			title_,
-//			category_,
-//			content_,
-//			tags_,
-//			attachments_,
-//			user_)
-//
-//		expect:
-//		assert service.serviceGetById(1) != null
-//
-//	}
-//	
-//	void "Document service unit test : serviceGetByTitle "() {
-//		
-//		setup:
-//		//persist a document, check it out
-//		def title_ = "title"
-//		def category_ = "category"
-//		def content_ = "my content"
-//		def tags_ = "a,b,c"
-//		def attachments_ = "attach"
-//		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
-//		user_.save()
-//		def res = service.serviceCreateDocument(
-//			title_,
-//			category_,
-//			content_,
-//			tags_,
-//			attachments_,
-//			user_)
-//		
-//
-//		expect:
-//		//assert Document.findByTitle("title") != null
-//		assert service.serviceGetByTitle("title") != null
-//
-//	}
+
+	void "Document service unit test : serviceGetById success"() {
+		setup:
+		//persist a document, check it out
+		def categ = new Category(name:"OS")
+		categ.save()
+		
+		def title_ = "title"
+		def category_ = "OS"
+		def content_ = "my content"
+		def tags_ = "a,b,c"
+		def attachments_ = "attach"
+		def user_ = new User(username: "alex", password: "alex", email:"a@a.c")
+		user_.save()
+		def res = service.serviceCreateDocument(
+			title_,
+			category_,
+			content_,
+			tags_,
+			attachments_,
+			user_)
+		
+		def fd = Document.findByTitle("title")
+		
+		def doc = service.serviceGetById(fd.id)
+		
+		expect:
+		assert doc.title == "title"
+
+	}
 	
 }

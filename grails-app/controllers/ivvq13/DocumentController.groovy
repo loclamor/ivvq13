@@ -6,8 +6,8 @@ class DocumentController {
 	UserService userService
 	DocumentService documentService
 	RatingService ratingService
-	MessageService messageService
-	
+	MessageService messageService
+
 	def create() {
 		//create new document, then on submit, redirect to view
 		def title_ = params.title

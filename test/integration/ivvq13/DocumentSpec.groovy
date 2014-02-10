@@ -12,6 +12,4 @@ class DocumentSpec extends IntegrationSpec {
 
 	void "test something"() {
 	}
-	
-	//do something here
 }
