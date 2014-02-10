@@ -98,12 +98,12 @@ class DocumentControllerSpec extends Specification {
 	def "Document controller unit test: view -> check rendering"()	{
 		setup:
 				
-		def the_id = Document.findByTitle("title")		
-		def model = controller.view(the_id.id)
+		def the_doc = Document.findByTitle("title")		
+		def model = controller.view(the_doc.id)
 		
 		expect:
 		//assert view == "/document/view"
-		assert model.document == doc			
+		assert model.document == the_doc			
 		
 	}
 	
@@ -118,18 +118,7 @@ class DocumentControllerSpec extends Specification {
 		
 	}
 	
-	def "Document controller unit test: list -> docs do not exist in db"()	{
-		setup:
-		def mydoc = Document.get(1)
-		mydoc.delete()
-		def model = controller.list()
 		
-		expect:
-		assert model.l.size() == 0
-		//assert controller.response.status == 200
-		
-	}
-	
 	def "Document controller unit test: list -> there are no docs"()	{
 		setup:
 		def mydoc = Document.get(1)
