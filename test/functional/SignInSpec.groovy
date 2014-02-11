@@ -23,6 +23,23 @@ class SignInSpec extends GebSpec{
     }
 
 	
+	
+	def "should redisplay form with an error message when password is bad"(){
+			when:
+			go "index.gsp"
+	
+			then:
+			$(".page-header").text() == "Bienvenu en IVVQ13"
+	
+			when:
+			$("#formSignIn input[name=inputUsernameIn]").value("totot")
+			$("#formSignIn input[name=inputPasswordIn]").value("tttttta")
+			$("#formSignIn input[type=submit]").click()
+	
+			then:
+			$(".page-header").text() == "Login"
+		}
+	
 //test-app --functional
 	
 	// see http://jaxenter.com/tutorial-groovy-functional-testing-with-geb-42070.html?print=yes
