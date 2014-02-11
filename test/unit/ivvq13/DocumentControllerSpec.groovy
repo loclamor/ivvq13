@@ -7,7 +7,7 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
  */
  
-@TestFor(DocumentController)
+@TestFor(DocumentController) 
 @Mock([Document,DocumentService,Attachment,Category,Message,Rating, RatingService, MessageService,Tag,User])
 class DocumentControllerSpec extends Specification {
 	 

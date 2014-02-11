@@ -2,8 +2,7 @@ package ivvq13
 
 class DocumentController {
 
-	
-	UserService userService
+
 	DocumentService documentService
 	RatingService ratingService
 	MessageService messageService

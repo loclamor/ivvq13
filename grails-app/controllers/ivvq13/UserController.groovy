@@ -3,7 +3,6 @@ package ivvq13
 
 class UserController {
 
-	UserService userService
 	
 
 	def signin() {
