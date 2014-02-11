@@ -1,9 +1,10 @@
 package ivvq13
 
-import grails.plugin.spock.IntegrationSpec
+
+import org.codehaus.groovy.grails.test.support.GrailsTestTransactionInterceptor
 
 
-class DocumentSpec extends IntegrationSpec {
+class DocumentSpec extends IVVQIntegrationSpec {
 
 	static transactional = false
 	
@@ -12,12 +13,12 @@ class DocumentSpec extends IntegrationSpec {
 	}
 	
 	
-//	void cleanup() {
+//	def cleanup() {
 //		perMethodRequestEnvironmentInterceptor?.destroy()
 //		destroyTransaction(perMethodTransactionInterceptor)
 //	  }
 	  
-	void cleanup() {}	  
+	def cleanup() {}	  
 	
 
 	void "Integrate document with message test"() {
@@ -60,9 +61,8 @@ class DocumentSpec extends IntegrationSpec {
 	
 		when:
 		message2.save()
-		message3.save()
-		
-		d.addToMessages(message2)
+		message3.save()		
+		d.addToMessages(message2) 
 		d.addToMessages(message3)		
 		d.save()
 		def s = d.messages.size()

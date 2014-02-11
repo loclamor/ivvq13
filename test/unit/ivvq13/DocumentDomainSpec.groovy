@@ -10,7 +10,7 @@ import spock.lang.Specification
 @TestMixin(GrailsUnitTestMixin)
 
 @Mock([Document,Attachment,Category,Message,Rating,Tag,User])
-class DocumentSpec extends Specification {
+class DocumentDomainSpec extends Specification {
 
 	//The purpose of this class is to test the document
 	
