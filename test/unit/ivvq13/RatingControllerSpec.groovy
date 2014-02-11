@@ -29,7 +29,7 @@ class RatingControllerSpec extends Specification {
 		def message = new Message(content: contentMes, title:"Hello", author:user)
 		message.save()
 		def doc = new Document()
-		doc.setTitle("my title")
+		doc.setTitle("title")
 		doc.setUser(user)
 		doc.setCategory(category)
 		doc.addToTags(tag1)
@@ -45,16 +45,17 @@ class RatingControllerSpec extends Specification {
 	def cleanup() {
 	}
 
-//	void "Rating Controller : add rate"() {
-//		setup:
-//		params.userRate = 3
-//		def mid = Document.findByTitle("my title")
-//		
-//		when:
-//		controller.rate(mid.id)
-//		
-//		then:
-//		assert response.redirectedUrl == "/document/view/1"
-//		
-//	}
+	void "Rating Controller : add rate"() {
+		setup:
+		params.userRate = 3
+		session.user = User.findByUsername("alex")
+		def mid = Document.findByTitle("title")
+		
+		when:
+		controller.rate(mid.id)
+		
+		then:
+		assert response.redirectedUrl == "/document/view/1"
+		
+	}
 }
