@@ -7,7 +7,7 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(RatingController)
-@Mock([Document,Attachment,Category,Message,Rating, RatingService, MessageService, UserService,Tag,User])
+@Mock([Document,Attachment,Category,Message,Rating, RatingService, MessageService,Tag,User])
 class RatingControllerSpec extends Specification {
 
 	def setup() {

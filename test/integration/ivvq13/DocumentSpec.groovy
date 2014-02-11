@@ -9,7 +9,7 @@ class DocumentSpec extends IVVQIntegrationSpec {
 	static transactional = false
 	def ratingService = new RatingService()
 	def messageService = new MessageService()
-	def userService = new UserService()
+
 	def documentService = new DocumentService()
 	
 	def setup() {

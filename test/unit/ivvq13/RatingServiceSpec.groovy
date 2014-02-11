@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
-@TestFor(RatingService)
-@Mock([Document,Attachment,Category,Message,Rating, RatingService, MessageService, UserService,Tag,User])
+@TestFor(RatingService) 
+@Mock([Document,Attachment,Category,Message,Rating, RatingService, MessageService,Tag,User])
 class RatingServiceSpec extends Specification {
 
 	def setup() {

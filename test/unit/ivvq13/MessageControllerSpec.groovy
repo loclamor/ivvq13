@@ -7,7 +7,7 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(MessageController)
-@Mock([Document,DocumentService,Attachment,Category,Message,Rating, RatingService, MessageService, UserService,Tag,User])
+@Mock([Document,DocumentService,Attachment,Category,Message,Rating, RatingService, MessageService,Tag,User])
 class MessageControllerSpec extends Specification {
 
 	def setup() {
@@ -35,7 +35,7 @@ class MessageControllerSpec extends Specification {
 		doc.addToTags(tag1)
 		doc.addToTags(tag2)
 		doc.addToMessages(message)
-		doc.setContent(contentDoc)
+		doc.setContent(contentDoc) 
 		doc.addToRatings(rating)
 		doc.addToAttachments(attachment)
 		doc.save()
@@ -44,7 +44,7 @@ class MessageControllerSpec extends Specification {
 	def cleanup() {
 	}
 
-	void "Message Controller : add message"() {
+	void "Message Controller : add message ok"() {
 		setup:
 		params.inputTitle = "Hi"
 		params.inputContent = "How are you ?"
@@ -57,4 +57,19 @@ class MessageControllerSpec extends Specification {
 		assert response.redirectedUrl == "/document/view/1"
 		
 	}
+//	
+//	void "Message Controller : add message duplicate"() {
+//		setup:
+//		params.inputTitle = "Hi"
+//		params.inputContent = "How are you ?"
+//		def mid = Document.findByTitle("my title")
+//		
+//		when:
+//		controller.add(mid.id)
+//		controller.add(mid.id)
+//		
+//		then:
+//		assert response.redirectedUrl == "/document/view/1"
+//		
+//	}
 }

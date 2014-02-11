@@ -9,7 +9,7 @@ import spock.lang.Specification
  */
 
 @TestFor(DocumentService)
-@Mock([Document,Attachment,Category,Message,Rating, RatingService, MessageService, UserService,Tag,User])
+@Mock([Document,Attachment,Category,Message,Rating, RatingService, MessageService,Tag,User])
 class DocumentServiceSpec extends Specification { 
 
 	//The purpose of this class is to test the document service
