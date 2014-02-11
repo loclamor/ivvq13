@@ -22,7 +22,7 @@
 
 # logs
 /stacktrace.log
-/test/reports
+#/test/reports
 /logs
 
 # project release file

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="layout" content="main" />
-<title>Connection</title>
+<title>Bienvenu en IVVQ13</title>
 </head>
 <body>
 	<div class="container">
@@ -16,9 +16,9 @@
 					</div>
 					<div class="col-md-6">
 						<h3>Sign In</h3>
-						<g:form controller="user" action="signin" class="form-horizontal"
-							role="form">
-							<div class="form-group">
+						<g:form id="formSignIn" controller="user" action="signin" class="form-horizontal"
+							role="form" name="loginForm">
+							<div  class="form-group">
 								<label for="inputUsernameIn" class="col-sm-3 control-label">Username</label>
 								<div class="col-sm-9">
 									<input type="text" class="form-control" id="inputUsernameIn"
