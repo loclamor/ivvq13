@@ -1,8 +1,6 @@
 package ivvq13
 
-import java.lang.ProcessBuilder.Redirect;
 
-import grails.test.mixin.*
 import spock.lang.Specification
 
 /**

@@ -60,6 +60,9 @@ grails.project.dependency.resolution = {
 		test("org.seleniumhq.selenium:selenium-chrome-driver:2.0rc3")
 		test("org.seleniumhq.selenium:selenium-firefox-driver:2.0rc3")
 		
+		test "org.seleniumhq.selenium:selenium-support:2.31.0"
+		test "org.gebish:geb-spock:0.9.0-RC-1"
+		
     } 
 	
 	coverage {
@@ -97,7 +100,8 @@ grails.project.dependency.resolution = {
 		// plugins for testing
 		test ":spock:0.7"
 		test ":code-coverage:1.2.7"
-		test ":geb:0.9.2"
+		//test ":geb:0.9.2"
+		//test ":geb:0.9.0-RC-1"
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
         runtime ":database-migration:1.3.8"

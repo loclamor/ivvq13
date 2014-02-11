@@ -194,6 +194,7 @@ class DocumentServiceSpec extends Specification {
 		
 		expect:
 		assert doc.title == "title"
+		assert res == true
 
 	}
 	

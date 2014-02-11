@@ -34,7 +34,8 @@ class DocumentController {
 		
 				
 	}
-	 
+	
+	@Override
 	def create_page() {
 		//redirect to create page		
 	}

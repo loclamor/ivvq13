@@ -1,6 +1,5 @@
 package ivvq13
 
-import org.springframework.mail.SimpleMailMessage
 
 class UserController {
 
@@ -42,7 +41,7 @@ class UserController {
 		redirect(uri: "/")
 	}
 	
-	
+	@Override
 	def changepwd() {
 		
 	}
@@ -54,7 +53,7 @@ class UserController {
 		session.user.save( flush: true )
 	}
 
-
+	@Override
 	def changename() {
 
 	}
@@ -78,7 +77,7 @@ class UserController {
 		redirect(uri: "/")
 	}
 	
-	
+	@Override
 	def forgotpwd(){
 		//le nom de fichier doit etre le meme que le nom de view
 	}
@@ -98,6 +97,7 @@ class UserController {
 		} 	
 	}
 	
+	@Override
 	def havetosignup(){
 	}
 
