@@ -9,7 +9,7 @@ class DocumentService {
 		def res
 		
 		//if the title is already in the database, please retry
-		def doc = Document.findByTitleLike(title_)
+		def doc = Document.findByTitle(title_)
 		if( doc ) {
 			println "A doc with this title already exists in the database";
 			res = false
@@ -26,13 +26,16 @@ class DocumentService {
 				tag1.errors.allErrors.each( {e -> println (e) } )
 			}
 		}
+//		def ra = new Rating(value: 0, author: user_)
+//		ra.save()
 		def theUser = User.findByUsername(user_.username)
 		def theCat = Category.findByName(category_)
 		def doc1 = new Document(
 			title: title_,
 			category: theCat,
 			user:theUser,
-			content: content_			
+			content: content_,	
+		//	rating: ra	
 		)
 		
 		list_of_tags.each {
