@@ -43,6 +43,8 @@ class DocumentService {
 		if(!doc1.save(flush:true)){
 			println("erreur enregistrement doc1");
 			doc1.errors.allErrors.each( {e -> println (e) } )
+			res = false
+			return res
 		}
 		
 		list_of_tags.each {
