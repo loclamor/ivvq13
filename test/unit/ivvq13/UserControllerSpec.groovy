@@ -17,10 +17,12 @@ class UserControllerSpec extends Specification {
     def cleanup() {
     }
 
-    void "User Controller test : signIn"() {
+    void "User Controller test : signIn error"() {
 		setup:
-		params.inputUsernameIn = "alex"
+		params.inputUsernameIn = "a"
 		params.inputPasswordIn = "a"
+		def user = new User(username: "alex", password: "a", email:"alex@a.com")
+		user.save()		
 		
 		when:
 		controller.signin()
@@ -30,11 +32,42 @@ class UserControllerSpec extends Specification {
 	   
     }
 	
-	void "User Controller test : signUp"() {
+	void "User Controller test : signIn ok"() {
+		setup:
+		params.inputUsernameIn = "alex"
+		params.inputPasswordIn = "a"
+		def user = new User(username: "alex", password: "a", email:"alex@a.com")
+		user.save()		
+		
+		when:
+		controller.signin()
+		
+		then:
+		assert response.redirectedUrl == "/document/list"
+	   
+	}
+	
+	void "User Controller test : signUp ok"() {
+		setup:
+		params.inputUsernameUp = "ab"
+		params.inputPasswordUp = "bb"
+		params.inputEmailUp = "a@a.c"
+		
+		when:
+		controller.signup()
+		
+		then:
+		assert response.redirectedUrl == "/document/list"
+	   
+	}
+	
+	void "User Controller test : signUp error -> user already exists"() {
 		setup:
 		params.inputUsernameUp = "a"
 		params.inputPasswordUp = "b"
 		params.inputEmailUp = "a@a.c"
+		def user = new User(username: "a", password: "b", email:"a@a.c")
+		user.save()
 		
 		when:
 		controller.signup()
