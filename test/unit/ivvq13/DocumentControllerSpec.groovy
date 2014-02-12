@@ -48,6 +48,7 @@ class DocumentControllerSpec extends Specification {
 		
 	}
 
+	@Override
 	def cleanup() {
 	}
 	

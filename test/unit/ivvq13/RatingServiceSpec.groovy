@@ -40,6 +40,7 @@ class RatingServiceSpec extends Specification {
 		doc.save()
 	}
 
+	@Override
 	def cleanup() {
 	}
 

@@ -35,6 +35,7 @@ class DocumentService {
 			category: theCat,
 			user:theUser,
 			content: content_,	
+			attachments: attachments_
 		//	rating: ra	
 		)
 		

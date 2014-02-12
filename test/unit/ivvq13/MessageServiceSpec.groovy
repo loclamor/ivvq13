@@ -21,6 +21,7 @@ class MessageServiceSpec extends Specification {
 		document.save()
 	}
 
+	@Override
 	def cleanup() {
 	}
 

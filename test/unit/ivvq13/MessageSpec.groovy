@@ -11,9 +11,11 @@ import spock.lang.Specification
 @Mock([Document,Attachment,Category,Message,Rating,Tag,User])
 class MessageSpec extends Specification {
 
-    def setup() {
+	@Override
+	def setup() {
     }
 
+	@Override
     def cleanup() {
     }
 

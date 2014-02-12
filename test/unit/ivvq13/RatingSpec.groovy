@@ -9,9 +9,11 @@ import spock.lang.Specification
 @TestFor(Rating)
 class RatingSpec extends Specification {
 
+	@Override
     def setup() {
     }
 
+	@Override
     def cleanup() {
     }
 

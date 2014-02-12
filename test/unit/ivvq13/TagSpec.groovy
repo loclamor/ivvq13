@@ -17,6 +17,7 @@ class TagSpec extends Specification {
 		tag = new Tag(name:"thisIsATag")
     }
 
+	@Override
     def cleanup() {
     }
 	

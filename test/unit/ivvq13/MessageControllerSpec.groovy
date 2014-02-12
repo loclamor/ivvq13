@@ -41,6 +41,7 @@ class MessageControllerSpec extends Specification {
 		doc.save()
 	}
 
+	@Override
 	def cleanup() {
 	}
 

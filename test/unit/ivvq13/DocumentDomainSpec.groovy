@@ -13,11 +13,12 @@ import spock.lang.Specification
 class DocumentDomainSpec extends Specification {
 
 	//The purpose of this class is to test the document
-	
+	@Override
 	def setup() {
 		
 	}
 
+	@Override
 	def cleanup() {
 	}
 

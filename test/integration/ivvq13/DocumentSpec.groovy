@@ -23,7 +23,7 @@ class DocumentSpec extends IVVQIntegrationSpec {
 //		perMethodRequestEnvironmentInterceptor?.destroy()
 //		destroyTransaction(perMethodTransactionInterceptor)
 //	  }
-	  
+	@Override
 	def cleanup() {}	  
 	
 
@@ -195,7 +195,7 @@ class DocumentSpec extends IVVQIntegrationSpec {
 			
 		setup:
 		def contentDoc = "Test document"
-		def contentMes = "Test message"
+//		def contentMes = "Test message"
 		def tag1 = new Tag(name:"tag 1")
 		tag1.save()
 		def tag2 = new Tag(name:"tag 2")

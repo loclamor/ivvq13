@@ -42,6 +42,7 @@ class RatingControllerSpec extends Specification {
 		
 	}
 
+	@Override
 	def cleanup() {
 	}
 

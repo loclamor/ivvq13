@@ -11,9 +11,11 @@ import spock.lang.Specification
 @Mock([Attachment, User])
 class AttachmentSpec extends Specification {
 
-    def setup() {
+	@Override
+	def setup() {
     }
 
+	@Override
     def cleanup() {
     }
 

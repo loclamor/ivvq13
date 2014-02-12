@@ -11,9 +11,11 @@ import spock.lang.Specification
 
 class UserControllerSpec extends Specification {
 
+	@Override
     def setup() {
     }
 
+	@Override
     def cleanup() {
     }
 
@@ -115,7 +117,7 @@ class UserControllerSpec extends Specification {
 		session.user = user
 		
 		when:
-		def a = controller.sendEmail()
+		controller.sendEmail()
 		
 		then:
 		assert response.redirectedUrl == "/user/havetosignup"

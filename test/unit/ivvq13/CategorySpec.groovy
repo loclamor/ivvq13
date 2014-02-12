@@ -9,9 +9,11 @@ import spock.lang.Specification
 @TestFor(Category)
 class CategorySpec extends Specification {
 
+	@Override
     def setup() {
     }
 
+	@Override
     def cleanup() {
     }
 

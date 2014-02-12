@@ -88,10 +88,8 @@ class UserSpec extends Specification {
 	user.signup()
 	}*/
 	
-	
+	@Override
 	def cleanup() {
 	}
 
-	void "test something"() {
-	}
 }

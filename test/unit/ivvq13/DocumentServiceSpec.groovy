@@ -1,7 +1,7 @@
 package ivvq13
 
 import grails.test.mixin.TestMixin
-import grails.test.mixin.support.GrailsUnitTestMixin
+//import grails.test.mixin.support.GrailsUnitTestMixin
 import spock.lang.Specification
 
 /**
@@ -20,6 +20,7 @@ class DocumentServiceSpec extends Specification {
 		
 	}
 
+	@Override
 	def cleanup() {
 		
 	}
