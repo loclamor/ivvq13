@@ -6,7 +6,7 @@
 # IDE support files
 /.classpath
 /.launch
-/.project
+#/.project
 /.settings
 /*.launch
 /*.tmproj
